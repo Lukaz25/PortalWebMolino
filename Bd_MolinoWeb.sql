@@ -84,14 +84,16 @@ CREATE TABLE IF NOT EXISTS public.categoria
 (
     idcategoria serial NOT NULL,
     descripcion character varying(100) ,
-    CONSTRAINT linea_pkey PRIMARY KEY (idlinea)
+    CONSTRAINT categoria_pkey PRIMARY KEY (idcategoria)
 );
 CREATE TABLE IF NOT EXISTS public.sub_categoria
 (
     idsub_categoria serial NOT NULL,
     descripcion character varying(150) ,
     idcategoria int,
-    CONSTRAINT idsub_categoria_pkey PRIMARY KEY (sub_categoria)
+    CONSTRAINT sub_categoria_pkey PRIMARY KEY (idsub_categoria),
+	CONSTRAINT fk_subcategoria_categoria FOREIGN KEY (idcategoria)
+        REFERENCES public.categoria (idcategoria)
 );
 CREATE TABLE IF NOT EXISTS public.marca
 (
