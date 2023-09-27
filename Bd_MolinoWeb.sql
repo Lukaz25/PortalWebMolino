@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS public.usuario
 	f_delete date, 
     CONSTRAINT usuarios_pkey PRIMARY KEY (idusuario),
     CONSTRAINT fk_usuario_rolusuario FOREIGN KEY (idrol)
-        REFERENCES public.rolesusuario (idrol)
+        REFERENCES public.rolusuario (idrol)
 );
 CREATE TABLE IF NOT EXISTS public.tipo_doc_identidad
 (
@@ -73,9 +73,9 @@ CREATE TABLE IF NOT EXISTS public.persona
     sistema character(1),
 	CONSTRAINT persona_pkey PRIMARY KEY (idpersona),
     CONSTRAINT fk_persona_ubigeo FOREIGN KEY (idubigeo)
-        REFERENCES public.rolesusuario (idubi),
-    CONSTRAINT fk_persona_tipo_doc_ide FOREIGN KEY (idtipodoc_ide)
-        REFERENCES public.tipo_doc_ide (idtipodoc_ide),
+        REFERENCES public.ubigeo (idubigeo),
+    CONSTRAINT fk_persona_tipo_doc_identidad FOREIGN KEY (idtipo_doc_identidad)
+        REFERENCES public.tipo_doc_identidad (idtipo_doc_identidad),
     CONSTRAINT fk_persona_tipo_persona FOREIGN KEY (idtipo_persona)
         REFERENCES public.tipo_persona (idtipo_persona)
 );
