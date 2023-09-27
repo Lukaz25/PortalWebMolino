@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS public.articulo
         REFERENCES public.sub_categoria (idsub_categoria),
 	CONSTRAINT fk_articulo_marca FOREIGN KEY (idmarca)
         REFERENCES public.marca (idmarca) ,
-	CONSTRAINT fk_articulo_unidad_medidaFOREIGN KEY (idunidad_medida)
+	CONSTRAINT fk_articulo_unidad_medida FOREIGN KEY (idunidad_medida)
         REFERENCES public.unidad_medida (idunidad_medida) 
 );
 CREATE TABLE IF NOT EXISTS public.zona
@@ -170,49 +170,39 @@ CREATE TABLE IF NOT EXISTS public.ingreso_cascara
     idtransportista int,
     transportista character varying(100) ,
     placa character varying(7) ,
-    
-    
     humedad numeric(14,2),
     num_sac_ing numeric(14,2),
-    pes_bru numeric(14,2),
-    hor_ing character(12) ,
-    tara numeric(14,2),
-    hor_sal character(12) ,
-    destarado character(1),
+    peso_bru numeric(14,2),
+    hora_ing character(12) ,
+    peso_tara numeric(14,2),
+    hora_sal character(12) ,
     pes_neto numeric(14,2),
-    
-    por_imp numeric(14,2),
-    mod_des character(1) ,
+    por_impureza numeric(14,2),
+    mod_des character(1) --S:saco/T:Tonelada,
     can_sac_des numeric(14,2),
-    cod_cua character(6) ,
-    tar_cua numeric(14,2),
-    tar_cli numeric(14,2),
-    imp_cua numeric(14,2),
-    imp_cli numeric(14,2),
+    idcuadrilla int,
+    tarifa_cua numeric(14,2),
+    tarifa_cli numeric(14,2),
+    importe_cua numeric(14,2),
+    importe_cli numeric(14,2),
     observacion character varying(200),
-    fecha_salida date,
-    usuario_ing character varying(50) ,
-    usuario_sal character varying(50) ,
-    num_sac_sec numeric(14,2) DEFAULT 0,
-    num_kil_sec numeric(14,2) DEFAULT 0,
-    sal_tot_sac_sec numeric(14,2) DEFAULT 0,
-    sal_tot_kil_sec numeric(14,2) DEFAULT 0,
-    estado integer DEFAULT 0,
-    retirado character(1) ,
-    lote_seco character(1) ,
-    cod_pro_ant character(6) ,
+    idpropietario_ant int,
     tipo_documento character(2)  NOT NULL,
     nro_doc character(10)  NOT NULL,
-    cod_art character(6) ,
-    num_sac_maq numeric(14,2) DEFAULT 0,
-    num_kil_maq numeric(14,2) DEFAULT 0,
-    sal_tot_sac_maq numeric(14,2) DEFAULT 0,
-    sal_tot_kil_maq numeric(14,2) DEFAULT 0,
+	secado character(1) DEFAULT 'N'
     maquila character(1)   DEFAULT 'N',
     liquidacion character(1)  DEFAULT 'N',
-    CONSTRAINT ingreso_ingreso_arroz_cascara_pkey PRIMARY KEY (nro_ing),
-    CONSTRAINT ingreso_ingreso_arroz_cascara_fk2 FOREIGN KEY (cod_variedad)
-        REFERENCES public.variedades (cod_variedad) ,
+    retirado character(1) DEFAULT 'N',
+	estado character DEFAULT '0',
+	user_create int,
+	f_create date,
+	user_update int,
+	f_update date,
+	user_delete int,
+	f_delete date,
+    CONSTRAINT ingreso_arroz_cascara_pkey PRIMARY KEY (idingreso_cascara),
+    CONSTRAINT ingreso_arroz_cascara_variedad_fk2 FOREIGN KEY (idvariedad)
+        REFERENCES public.variedades (idvariedad) ,
     CONSTRAINT ingreso_ingreso_arroz_cascara_fk3 FOREIGN KEY (cod_zona)
         REFERENCES public.zona (cod_zona)
 )
