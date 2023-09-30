@@ -2,7 +2,7 @@ package com.PortalWebMolino.BackendMolino.Entity.Dto;
 
 
 
-public class rolusuarioDTO{
+public class RolusuarioDTO {
     private Integer idrol;
     private String nombre;
 

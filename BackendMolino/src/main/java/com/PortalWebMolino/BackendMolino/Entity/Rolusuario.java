@@ -9,26 +9,21 @@ import org.springframework.lang.NonNull;
 @NoArgsConstructor
 @Entity
 @Table(name = "rolusuario")
-public class rolusuarioEntity {
+public class Rolusuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idrol;
+    private Long idrol;
     @Column(name="nombre")
     @NonNull
     private String nombre;
-    public int getIdrol() {
-        return idrol;
-    }
-
-    public void setIdrol(int idrol) {
+    public Long getIdrol() {return idrol;}
+    public void setIdrol(Long idrol) {
         this.idrol = idrol;
     }
-
     @NonNull
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(@NonNull String nombre) {
         this.nombre = nombre;
     }
