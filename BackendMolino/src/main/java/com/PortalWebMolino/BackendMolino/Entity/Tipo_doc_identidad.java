@@ -10,9 +10,9 @@ import org.springframework.lang.NonNull;
 public class Tipo_doc_identidad {
     @Id
     private String idtipo_doc_identidad;
-    @Column(name="descripcion")
+    @Column(name = "descripcion")
     private String nombre;
-    @Column(name="longitud")
+    @Column(name = "longitud")
     @NonNull
     private Double longitud;
 

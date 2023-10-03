@@ -17,16 +17,18 @@ import java.util.Optional;
 public class Tipo_doc_identidadController {
     @Autowired
     private Tipo_doc_identidadService tipo_doc_identidadService;
+
     @GetMapping
     public ResponseEntity<Page<Tipo_doc_identidad>> ObtenerTodos(
             @RequestParam(required = false, defaultValue = "0") Integer page,
             @RequestParam(required = false, defaultValue = "10") Integer size,
             @RequestParam(required = false, defaultValue = "false") Boolean enablePagination
-    ){
-        return ResponseEntity.ok(tipo_doc_identidadService.ObtenerTodos(page,size,enablePagination));
+    ) {
+        return ResponseEntity.ok(tipo_doc_identidadService.ObtenerTodos(page, size, enablePagination));
     }
+
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Optional<Tipo_doc_identidad>> ObtenerporId(@PathVariable("id") String id ){
+    public ResponseEntity<Optional<Tipo_doc_identidad>> ObtenerporId(@PathVariable("id") String id) {
         return ResponseEntity.status(HttpStatus.OK).body(tipo_doc_identidadService.ObtenerporId(id));
     }
 }

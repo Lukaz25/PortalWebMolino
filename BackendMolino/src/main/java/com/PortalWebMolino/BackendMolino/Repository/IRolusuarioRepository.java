@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface IRolusuarioRepository extends JpaRepository<Rolusuario, Long> {
-@Query("SELECT ru FROM Rolusuario ru WHERE ru.idrol= :id")
-Rolusuario findByID(@Param("id")Long id);
+    @Query("SELECT ru FROM Rolusuario ru WHERE ru.idrol= :id")
+    Rolusuario findByID(@Param("id") Long id);
 }

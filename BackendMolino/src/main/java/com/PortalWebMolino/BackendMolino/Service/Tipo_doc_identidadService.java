@@ -15,12 +15,11 @@ public class Tipo_doc_identidadService {
     @Autowired
     ITipo_doc_identidadRepository iTipoDocIdentidadRepository;
 
-    public Page<Tipo_doc_identidad> ObtenerTodos (Integer page, Integer size, Boolean enablePagination) {
-        return iTipoDocIdentidadRepository.findAll(enablePagination ? PageRequest.of(page,size): Pageable.unpaged());
+    public Page<Tipo_doc_identidad> ObtenerTodos(Integer page, Integer size, Boolean enablePagination) {
+        return iTipoDocIdentidadRepository.findAll(enablePagination ? PageRequest.of(page, size) : Pageable.unpaged());
     }
-    public Optional<Tipo_doc_identidad> ObtenerporId(String id){
+
+    public Optional<Tipo_doc_identidad> ObtenerporId(String id) {
         return Optional.ofNullable(iTipoDocIdentidadRepository.findByID(id));
     }
-
-
 }
