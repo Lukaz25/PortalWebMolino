@@ -20,9 +20,9 @@ public class Usuario {
     @Column(name = "username")
     @NonNull
     private String username;
-    @Column(name = "contraseña")
+    @Column(name = "password")
     @NonNull
-    private String contraseña;
+    private String password;
     @Column(name = "email")
     @NonNull
     private String email;

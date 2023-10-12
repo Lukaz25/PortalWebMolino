@@ -23,6 +23,7 @@ public class RolusuarioService {
 
     public Optional<Rolusuario> ObtenerporId(Long id) {
         return Optional.ofNullable(iRolusuarioRepository.findByID(id));
+
     }
 
     public Rolusuario Actualizar(Rolusuario rolusuario) {
