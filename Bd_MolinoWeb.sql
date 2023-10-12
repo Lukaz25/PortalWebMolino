@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS public.usuario
     idusuario serial NOT NULL,
 	idrol int ,
     username character varying(50) NOT NULL,
-    contraseña character varying(32),
+    password character varying(32),
     idpersona int,
     email character varying(200) ,
 	estado character(1)DEFAULT '0' NOT NULL,
