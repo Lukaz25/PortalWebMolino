@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>{{tituloAccion}} Rol de usuario</h2>
+<mat-divider inset></mat-divider>
+<mat-dialog-content>
+
+    <form [formGroup]="formularioRolusuario">
+        <mat-grid-list cols="1" rowHeight="100px">
+
+            <mat-grid-tile disable>
+                <mat-form-field appearance="outline">
+                    <mat-label>Codigo</mat-label>
+                    <input matInput autocomplete="off" formControlName="idrol" readonly >
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput autocomplete="off" formControlName="nombre" autofocus>
+                </mat-form-field>
+            </mat-grid-tile>
+
+        </mat-grid-list>
+    </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+    <button mat-raised-button color="primary" [disabled]="formularioRolusuario.invalid"
+        (click)="GuardarEditar_Rolusuario()">{{botonAccion}}
+    </button>
+</mat-dialog-actions>
