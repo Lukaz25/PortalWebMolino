@@ -25,6 +25,10 @@ public class UsuarioService {
         return Optional.ofNullable(iUsuarioRepository.findByID(id));
 
     }
+    public Optional<Usuario> ObtenerporNombre(String username) {
+        return Optional.ofNullable(iUsuarioRepository.findByName(username));
+
+    }
     public Usuario Actualizar(Usuario usuario) {
         if (usuario.getIdusuario() != null && iUsuarioRepository.existsById(usuario.getIdusuario())) {
             return iUsuarioRepository.save(usuario);

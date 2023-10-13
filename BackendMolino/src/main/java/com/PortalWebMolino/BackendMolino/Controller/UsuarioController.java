@@ -1,5 +1,7 @@
 package com.PortalWebMolino.BackendMolino.Controller;
 
+import com.PortalWebMolino.BackendMolino.Entity.Dto.LoginDto;
+import com.PortalWebMolino.BackendMolino.Entity.Rolusuario;
 import com.PortalWebMolino.BackendMolino.Entity.Usuario;
 import com.PortalWebMolino.BackendMolino.Service.UsuarioService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +21,10 @@ import java.util.Optional;
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
-
+    @PostMapping("/Login")
+    public ResponseEntity<Optional<Usuario>> LoginUsuario(@Valid @RequestBody LoginDto loginDto) {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.ObtenerporNombre(loginDto.getUsername()));
+    }
     @PostMapping
     public ResponseEntity<Usuario> Crear(@Valid @RequestBody Usuario usuario) {
         return
