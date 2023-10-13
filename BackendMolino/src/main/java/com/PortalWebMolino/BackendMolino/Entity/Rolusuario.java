@@ -17,6 +17,7 @@ public class Rolusuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idrol;
+
     @Column(name = "nombre")
     @NonNull
     private String nombre;

@@ -1,12 +1,15 @@
 package com.PortalWebMolino.BackendMolino.Entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 import org.springframework.lang.NonNull;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -17,38 +20,45 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idusuario;
-    @Column(name = "username")
+
+    @Column(name = "username",unique = true)
     @NonNull
     private String username;
+
     @Column(name = "password")
     @NonNull
     private String password;
-    @Column(name = "email")
+
+    @Column(name = "email",unique = true)
     @NonNull
     private String email;
+
     @Column(name = "estado")
     @NonNull
     private String estado;
+
     @Column(name = "sistema")
     @NonNull
     private String sistema;
+
     @Column(name = "user_create")
     @NonNull
     private String user_create;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    Date f_create;
+
     @Column(name = "user_delete")
-    @NonNull
     private String user_delete;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    Date f_delete;
+
     @Column(name = "idpersona")
     @NonNull
     private String idpersona;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "idrol")
     private Rolusuario rolusuario;
-
-
-    //f_create date
-
-    //f_delete date
 }
