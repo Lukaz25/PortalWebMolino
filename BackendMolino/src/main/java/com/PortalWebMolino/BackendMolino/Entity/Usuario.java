@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.lang.NonNull;
 
+import javax.validation.constraints.Email;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -16,6 +18,8 @@ import java.util.Date;
 @Entity
 @Table(name = "usuario")
 public class Usuario {
+    private static final SimpleDateFormat dateFormat
+            = new SimpleDateFormat("yyyy-MM-dd HH:mm");
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idusuario;
@@ -29,6 +33,7 @@ public class Usuario {
     private String password;
 
     @Column(name = "email",unique = true)
+    @Email
     @NonNull
     private String email;
 
