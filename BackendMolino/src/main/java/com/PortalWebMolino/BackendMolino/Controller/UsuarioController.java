@@ -21,7 +21,7 @@ import java.util.Optional;
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
-    @PostMapping("/Login")
+    @PostMapping("/IniciarSesion")
     public ResponseEntity<Optional<Usuario>> LoginUsuario(@Valid @RequestBody LoginDto loginDto) {
         return ResponseEntity.status(HttpStatus.OK).body(usuarioService.ObtenerporNombre(loginDto.getUsername()));
     }
