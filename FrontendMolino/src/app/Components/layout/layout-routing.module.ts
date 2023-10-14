@@ -4,6 +4,7 @@ import { LayoutComponent } from './layout.component';
 import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 import { RolusuarioComponent } from './Pages/rolusuario/rolusuario.component';
 import { TipoPersonaComponent } from './Pages/tipo-persona/tipo-persona.component';
+import { UsuarioComponent } from './Pages/usuario/usuario.component';
 
 const routes: Routes = [{
   path:'',
@@ -11,7 +12,8 @@ const routes: Routes = [{
   children:[
     {path:'dashboard',component:DashboardComponent},
     {path:'rolusuario',component:RolusuarioComponent},
-    {path:'tipo_persona',component:TipoPersonaComponent}
+    {path:'tipo_persona',component:TipoPersonaComponent},
+    {path:'usuario',component:UsuarioComponent}
   ]
 }];
 

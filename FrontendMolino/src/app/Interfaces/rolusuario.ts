@@ -1,4 +1,4 @@
 export interface Rolusuario {
-    idrol:number,
-    nombre:string
+    idrol: number,
+    nombre: string
 }

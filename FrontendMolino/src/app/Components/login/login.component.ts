@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { duration } from 'moment';
 import { Login } from 'src/app/Interfaces/login';
 import { UtilidadService } from 'src/app/Reutilizable/utilidad.service';
 import { UsuarioService } from 'src/app/Services/usuario.service';
@@ -19,23 +21,23 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private _snackBar: MatSnackBar,
     private _usuarioServicio: UsuarioService,
     private _utilidadServicio: UtilidadService,
-    
+
   ) {
     this.formularioLogin = this.fb.group({
-      email: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
   ngOnInit(): void {
-     }
-      
+  }
   iniciarSesion() {
     this.mostrarLoading = true;
     const request: Login = {
-      correo: this.formularioLogin.value.email,
-      clave: this.formularioLogin.value.password
+      username: this.formularioLogin.value.username,
+      password: this.formularioLogin.value.password
     }
     this._usuarioServicio.iniciarSesion(request).subscribe({
       next: (data) => {
@@ -45,12 +47,13 @@ export class LoginComponent implements OnInit {
         } else
           this._utilidadServicio.MostrarAlerta("Usuario No Existe", "VERIFICAR")
       },
-      complete:()=>{
-        this.mostrarLoading=false;
+      complete: () => {
+        this.mostrarLoading = false;
       },
-      error:()=>{
+      error: () => {
         this._utilidadServicio.MostrarAlerta("Hubo un error", "ERROR")
       }
     })
+
   }
 }

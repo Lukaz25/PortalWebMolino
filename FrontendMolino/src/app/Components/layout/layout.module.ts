@@ -16,9 +16,9 @@ import { UsuarioComponent } from './Pages/usuario/usuario.component';
     DashboardComponent,
     RolusuarioComponent,
     TipoPersonaComponent,
+    UsuarioComponent,
     ModalRolusuarioComponent,
     ModalUsuarioComponent,
-    UsuarioComponent
   ],
   imports: [
     CommonModule,
