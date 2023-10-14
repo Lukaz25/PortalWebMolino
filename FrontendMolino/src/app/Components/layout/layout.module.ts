@@ -8,6 +8,7 @@ import { TipoPersonaComponent } from './Pages/tipo-persona/tipo-persona.componen
 import { SharedModule } from 'src/app/Reutilizable/Shared/shared.module';
 import { ModalRolusuarioComponent } from './Modales/modal-rolusuario/modal-rolusuario.component';
 import { ModalUsuarioComponent } from './Modales/modal-usuario/modal-usuario.component';
+import { UsuarioComponent } from './Pages/usuario/usuario.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ModalUsuarioComponent } from './Modales/modal-usuario/modal-usuario.com
     RolusuarioComponent,
     TipoPersonaComponent,
     ModalRolusuarioComponent,
-    ModalUsuarioComponent
+    ModalUsuarioComponent,
+    UsuarioComponent
   ],
   imports: [
     CommonModule,
