@@ -1,6 +1,9 @@
 package com.PortalWebMolino.BackendMolino.Service;
 
+import com.PortalWebMolino.BackendMolino.Entity.Dto.SesionDto;
+import com.PortalWebMolino.BackendMolino.Entity.Dto.UsuarioDto;
 import com.PortalWebMolino.BackendMolino.Entity.Usuario;
+import com.PortalWebMolino.BackendMolino.Repository.IRolusuarioRepository;
 import com.PortalWebMolino.BackendMolino.Repository.IUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +16,20 @@ public class UsuarioService {
     @Autowired
     IUsuarioRepository iUsuarioRepository;
 
+    public SesionDto IniciarSesion(String username, String pass) {
+        Usuario usuario = iUsuarioRepository.findByNameAndPass(username, pass);
+        if (usuario == null) {
+            usuario = iUsuarioRepository.findByEmailandPass(username, pass);
+        }
+        if (usuario != null) {
+            return crearSesionDto(usuario);
+        } else {
+            return null;
+        }
+    }
+    private SesionDto crearSesionDto(Usuario usuario) {
+        return new SesionDto(usuario.getIdusuario(), usuario.getEmail(), usuario.getUsername(), usuario.getRolusuario().getIdrol().toString());
+    }
     public Usuario Crear(Usuario usuario) {
         return iUsuarioRepository.save(usuario);
     }
@@ -25,8 +42,20 @@ public class UsuarioService {
         return Optional.ofNullable(iUsuarioRepository.findByID(id));
 
     }
+
     public Optional<Usuario> ObtenerporNombre(String username) {
         return Optional.ofNullable(iUsuarioRepository.findByName(username));
+
+    }
+    public Optional<Usuario> ObtenerporNombreyPass(String username, String pass) {
+        return Optional.ofNullable(iUsuarioRepository.findByNameAndPass(username,pass));
+
+    }
+    public Optional<Usuario> ObtenerporEmail(String email) {
+        return Optional.ofNullable(iUsuarioRepository.findByEmail(email));
+    }
+    public Optional<Usuario> ObtenerporEmailyPass(String email, String pass) {
+        return Optional.ofNullable(iUsuarioRepository.findByEmailandPass(email,pass));
 
     }
     public Usuario Actualizar(Usuario usuario) {

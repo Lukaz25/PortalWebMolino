@@ -1,6 +1,7 @@
 package com.PortalWebMolino.BackendMolino.Controller;
 
 import com.PortalWebMolino.BackendMolino.Entity.Dto.LoginDto;
+import com.PortalWebMolino.BackendMolino.Entity.Dto.SesionDto;
 import com.PortalWebMolino.BackendMolino.Entity.Rolusuario;
 import com.PortalWebMolino.BackendMolino.Entity.Usuario;
 import com.PortalWebMolino.BackendMolino.Service.UsuarioService;
@@ -22,8 +23,9 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
     @PostMapping("/IniciarSesion")
-    public ResponseEntity<Optional<Usuario>> LoginUsuario(@Valid @RequestBody LoginDto loginDto) {
-        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.ObtenerporNombre(loginDto.getUsername()));
+    public ResponseEntity<SesionDto> iniciarSesion(@Valid @RequestBody LoginDto loginDto) {
+            SesionDto sesionDto = usuarioService.IniciarSesion(loginDto.getUsername(), loginDto.getPassword());
+            return ResponseEntity.ok(sesionDto);
     }
     @PostMapping
     public ResponseEntity<Usuario> Crear(@Valid @RequestBody Usuario usuario) {
