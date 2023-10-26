@@ -1,17 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
-html,
-body {
-    height: 100%;
+html, body { 
+    height: 100%; 
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+    background-color: transparent;
 }
 
-/*body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }*/
-
-body {
-    font-family: Roboto, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
-    margin: 0;
+::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: #dbdbdb;
+    
 }
-
 .basic-container {
     padding: 5px;
 }
@@ -20,5 +24,4 @@ body {
     font-size: 8pt;
     float: right;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

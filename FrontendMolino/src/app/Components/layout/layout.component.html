@@ -1,78 +1,74 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <h1>Sistema Gestion Molinos</h1>
-        <button mat-icon-button (click)="sidenav.toggle();">
-            <mat-icon>menu</mat-icon>
-        </button>
-    </mat-toolbar-row>
+<mat-toolbar color="primary" style="display: flex">
+  <mat-toolbar-row>
+    Sistema Gestión Molino
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span style="flex: 1 1 auto"></span>
+    <button mat-icon-button><mat-icon>logout</mat-icon></button>
+  </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
+  <mat-sidenav #sidenav opened="true" mode="side" hasBackdrop="false" style="width: 270px">
+      
+      <mat-divider></mat-divider>
+      <mat-nav-list>
+      <mat-list-item routerLink="/pages/dashboard">
+      <mat-icon mat-list-icon>home</mat-icon>
+      DashBoard
+      </mat-list-item>
 
-    <mat-sidenav #sidenav opened="true" mode="side" [class.mat-elevation-z4]="true" style="width: 300px;">
-        <mat-nav-list>
+      <mat-list-item (click)="toggleMenu1()" >
+        <mat-icon mat-list-icon>list</mat-icon>Mantenimiento
+        <mat-icon *ngIf="!showMenu1">chevron_right</mat-icon>
+        <mat-icon *ngIf="showMenu1">expand_more</mat-icon>
+      </mat-list-item>
+      <mat-nav-list class="sidenav-submenu" *ngIf="showMenu1" style="padding: 5px 25px 0; width: 100%;">
+        <mat-list-item routerLink="/pages/usuario">
+          <mat-icon mat-list-icon>add_business</mat-icon>Almacenes</mat-list-item>
+          <mat-list-item routerLink="/pages/usuario">
+            <mat-icon mat-list-icon>compost</mat-icon>Variedades</mat-list-item>
+        <mat-list-item routerLink="/pages/rolusuario">
+        <mat-icon mat-list-icon>groups</mat-icon>Tipo Personas</mat-list-item>
+        <mat-list-item routerLink="/pages/usuario">
+        <mat-icon mat-list-icon>group_add</mat-icon>Personas</mat-list-item>
+      </mat-nav-list>
 
-            <mat-list-item routerLink="/pages/dashboard">
-                <mat-icon mat-list-icon>dashboard</mat-icon>
-                <div mat-line>Dashboard</div>
-            </mat-list-item>
+      <mat-list-item (click)="toggleMenu2()">
+        <mat-icon mat-list-icon>account_tree</mat-icon>Procesos
+        <mat-icon *ngIf="!showMenu2">chevron_right</mat-icon>
+        <mat-icon *ngIf="showMenu2">expand_more</mat-icon>
+      </mat-list-item>
+      <mat-nav-list class="sidenav-submenu" *ngIf="showMenu2" style="padding: 5px 25px 0; width: 100%;">
+        <mat-list-item routerLink="/pages/rolusuario">
+        <mat-icon mat-list-icon>local_shipping</mat-icon>Ingreso Cascara</mat-list-item>
+        <mat-list-item routerLink="/pages/usuario">
+        <mat-icon mat-list-icon>sunny</mat-icon>Secado</mat-list-item>
+        <mat-list-item routerLink="/pages/usuario">
+          <mat-icon mat-list-icon>move_down</mat-icon>Pilado</mat-list-item>
+      </mat-nav-list>
+      <mat-list-item (click)="toggleMenu3()">
+        <mat-icon mat-list-icon>receipt_long</mat-icon>Reportes
+        <mat-icon *ngIf="!showMenu3">chevron_right</mat-icon>
+        <mat-icon *ngIf="showMenu3">expand_more</mat-icon>
+      </mat-list-item>
 
-            <mat-expansion-panel [class.mat-elevation-z0]="true">
-                <mat-expansion-panel-header>
-                    <mat-icon mat-list-icon>edit_square</mat-icon>
-                    <div mat-line>Mantenimiento</div>
-                </mat-expansion-panel-header>
-                    <mat-list-item routerLink="/pages/tipo_persona">
-                        <mat-icon mat-list-icon>groups</mat-icon>
-                        <div mat-line>Tipo Persona</div>
-                    </mat-list-item>
-            </mat-expansion-panel>
-            <mat-expansion-panel #expansion opened="true" [class.mat-elevation-z0]="true">
-                <mat-expansion-panel-header>
-                    <mat-icon mat-list-icon>account_tree</mat-icon>
-                    <div mat-line>Procesos</div>
-                </mat-expansion-panel-header>
-                    <mat-list-item routerLink="/pages/ingreso_cascara">
-                        <mat-icon mat-list-icon>local_shipping</mat-icon>
-                        <div mat-line>Ingreso Cascara</div>
-                    </mat-list-item>
-                    <mat-list-item routerLink="/pages/secado">
-                        <mat-icon mat-list-icon>sunny</mat-icon>
-                        <div mat-line>Secado</div>
-                    </mat-list-item>
-                    <mat-list-item routerLink="/pages/pilado">
-                        <mat-icon mat-list-icon>transform</mat-icon>
-                        <div mat-line>Pilado</div>
-                    </mat-list-item>
-            </mat-expansion-panel>
-            <mat-expansion-panel [class.mat-elevation-z0]="true">
-                <mat-expansion-panel-header>
-                    <mat-icon mat-list-icon>receipt_long</mat-icon>
-                    <div mat-line>Reportes</div>
-                </mat-expansion-panel-header>
-                    <mat-list-item routerLink="/pages/ingreso_arroz">
-                        <mat-icon mat-list-icon>description</mat-icon>
-                        <div mat-line>Ingreso de Arroz</div>
-                    </mat-list-item>
-            </mat-expansion-panel>
-            <mat-expansion-panel [class.mat-elevation-z0]="true">
-                <mat-expansion-panel-header>
-                    <mat-icon mat-list-icon>settings</mat-icon>
-                    <div mat-line>Configuracion</div>
-                </mat-expansion-panel-header>
-                    <mat-list-item routerLink="/pages/rolusuario">
-                        <mat-icon mat-list-icon>group</mat-icon>
-                        <div mat-line>Roles</div>
-                    </mat-list-item>
-                    <mat-list-item routerLink="/pages/usuario">
-                        <mat-icon mat-list-icon>manage_accounts</mat-icon>
-                        <div mat-line>Usuarios</div>
-                    </mat-list-item>
-            </mat-expansion-panel>
-        </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <div style="height: 90vh;">
-            <router-outlet></router-outlet>
-        </div>
-    </mat-sidenav-content>
+      <mat-list-item (click)="toggleMenu4()">
+        <mat-icon mat-list-icon>manage_accounts</mat-icon>Administración
+        <mat-icon *ngIf="!showMenu4">chevron_right</mat-icon>
+        <mat-icon *ngIf="showMenu4">expand_more</mat-icon>
+      </mat-list-item>
+      <mat-nav-list class="sidenav-submenu" *ngIf="showMenu4" style="padding: 5px 25px 0; width: 100%;">
+        <mat-list-item routerLink="/pages/rolusuario">
+        <mat-icon mat-list-icon>admin_panel_settings</mat-icon>Roles</mat-list-item>
+        <mat-list-item routerLink="/pages/usuario">
+        <mat-icon mat-list-icon>perm_contact_calendar</mat-icon>Usuarios</mat-list-item>
+      </mat-nav-list>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 90vh">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
