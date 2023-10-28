@@ -1,7 +1,6 @@
 package com.PortalWebMolino.BackendMolino.Service;
 
 import com.PortalWebMolino.BackendMolino.Entity.Dto.SesionDto;
-import com.PortalWebMolino.BackendMolino.Entity.Dto.UsuarioDto;
 import com.PortalWebMolino.BackendMolino.Entity.Usuario;
 import com.PortalWebMolino.BackendMolino.Repository.IRolusuarioRepository;
 import com.PortalWebMolino.BackendMolino.Repository.IUsuarioRepository;
@@ -15,6 +14,7 @@ import java.util.Optional;
 public class UsuarioService {
     @Autowired
     IUsuarioRepository iUsuarioRepository;
+    IRolusuarioRepository iRolusuarioRepository;
 
     public SesionDto IniciarSesion(String username, String pass) {
         Usuario usuario = iUsuarioRepository.findByNameAndPass(username, pass);
@@ -28,7 +28,8 @@ public class UsuarioService {
         }
     }
     private SesionDto crearSesionDto(Usuario usuario) {
-        return new SesionDto(usuario.getIdusuario(), usuario.getEmail(), usuario.getUsername(), usuario.getRolusuario().getIdrol().toString());
+
+        return new SesionDto(usuario.getIdusuario(), usuario.getEmail(), usuario.getUsername(), usuario.getRolusuario().getNombre());
     }
     public Usuario Crear(Usuario usuario) {
         return iUsuarioRepository.save(usuario);

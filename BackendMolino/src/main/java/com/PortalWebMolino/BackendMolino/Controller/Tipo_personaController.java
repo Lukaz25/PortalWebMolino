@@ -1,18 +1,17 @@
 package com.PortalWebMolino.BackendMolino.Controller;
 
-
 import com.PortalWebMolino.BackendMolino.Entity.Tipo_persona;
 import com.PortalWebMolino.BackendMolino.Service.Tipo_personaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("api/Tipo_persona")
 @RequiredArgsConstructor
@@ -27,14 +26,9 @@ public class Tipo_personaController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<Tipo_persona>> ObtenerTodos(
-            @RequestParam(required = false, defaultValue = "0") Integer page,
-            @RequestParam(required = false, defaultValue = "10") Integer size,
-            @RequestParam(required = false, defaultValue = "false") Boolean enablePagination
-    ) {
-        return ResponseEntity.ok(tipo_personaService.ObtenerTodos(page, size, enablePagination));
+    public List<Tipo_persona> ObtenerTodos() {
+        return tipo_personaService.ObtenerTodos();
     }
-
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<Tipo_persona>> ObtenerporId(@PathVariable("id") Long id) {
         return ResponseEntity.status(HttpStatus.OK).body(tipo_personaService.ObtenerporId(id));

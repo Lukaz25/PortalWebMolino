@@ -2,7 +2,6 @@ package com.PortalWebMolino.BackendMolino.Controller;
 
 import com.PortalWebMolino.BackendMolino.Entity.Dto.LoginDto;
 import com.PortalWebMolino.BackendMolino.Entity.Dto.SesionDto;
-import com.PortalWebMolino.BackendMolino.Entity.Rolusuario;
 import com.PortalWebMolino.BackendMolino.Entity.Usuario;
 import com.PortalWebMolino.BackendMolino.Service.UsuarioService;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +14,9 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
+
 @RestController
 @RequestMapping("api/Usuario")
 @RequiredArgsConstructor

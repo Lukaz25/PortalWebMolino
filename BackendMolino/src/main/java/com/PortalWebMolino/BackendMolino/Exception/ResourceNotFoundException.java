@@ -1,7 +1,4 @@
-package com.PortalWebMolino.BackendMolino.exception;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+package com.PortalWebMolino.BackendMolino.Exception;
 
 public class ResourceNotFoundException extends RuntimeException {
     private static final long serialVersionUID = 1L;

@@ -4,13 +4,14 @@ import com.PortalWebMolino.BackendMolino.Entity.Tipo_doc_identidad;
 import com.PortalWebMolino.BackendMolino.Service.Tipo_doc_identidadService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("api/Tipo_doc_identidad")
 @RequiredArgsConstructor
@@ -19,12 +20,8 @@ public class Tipo_doc_identidadController {
     private Tipo_doc_identidadService tipo_doc_identidadService;
 
     @GetMapping
-    public ResponseEntity<Page<Tipo_doc_identidad>> ObtenerTodos(
-            @RequestParam(required = false, defaultValue = "0") Integer page,
-            @RequestParam(required = false, defaultValue = "10") Integer size,
-            @RequestParam(required = false, defaultValue = "false") Boolean enablePagination
-    ) {
-        return ResponseEntity.ok(tipo_doc_identidadService.ObtenerTodos(page, size, enablePagination));
+    public List<Tipo_doc_identidad> ObtenerTodos() {
+        return tipo_doc_identidadService.ObtenerTodos();
     }
 
     @GetMapping(value = "/{id}")

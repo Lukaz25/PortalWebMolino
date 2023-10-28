@@ -1,13 +1,12 @@
 package com.PortalWebMolino.BackendMolino.Service;
 
+
 import com.PortalWebMolino.BackendMolino.Entity.Tipo_persona;
 import com.PortalWebMolino.BackendMolino.Repository.ITipo_personaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,9 +17,8 @@ public class Tipo_personaService {
     public Tipo_persona Crear(Tipo_persona tipo_persona) {
         return iTipo_personaRepository.save(tipo_persona);
     }
-
-    public Page<Tipo_persona> ObtenerTodos(Integer page, Integer size, Boolean enablePagination) {
-        return iTipo_personaRepository.findAll(enablePagination ? PageRequest.of(page, size) : Pageable.unpaged());
+    public List<Tipo_persona> ObtenerTodos() {
+        return iTipo_personaRepository.findAll();
     }
 
     public Optional<Tipo_persona> ObtenerporId(Long id) {
