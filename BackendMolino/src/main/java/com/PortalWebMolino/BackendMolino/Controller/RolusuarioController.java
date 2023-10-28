@@ -1,6 +1,5 @@
 package com.PortalWebMolino.BackendMolino.Controller;
 
-import com.PortalWebMolino.BackendMolino.Entity.Dto.RolusuarioDto;
 import com.PortalWebMolino.BackendMolino.Entity.Rolusuario;
 import com.PortalWebMolino.BackendMolino.Service.RolusuarioService;
 import lombok.RequiredArgsConstructor;
@@ -10,12 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
 @RequestMapping("api/Rolusuario")
 @RequiredArgsConstructor
@@ -43,7 +41,7 @@ public class RolusuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(rolusuarioService.Actualizar(rolusuario));
     }
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity Eliminar(@PathVariable("id") Long id) {
+    public ResponseEntity<?> Eliminar(@PathVariable("id") Long id) {
         rolusuarioService.Eliminar(id);
         return ResponseEntity.ok(!rolusuarioService.ExistById(id));
     }

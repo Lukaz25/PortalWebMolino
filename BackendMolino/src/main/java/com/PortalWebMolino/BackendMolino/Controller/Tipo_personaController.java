@@ -40,7 +40,7 @@ public class Tipo_personaController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity Eliminar(@PathVariable("id") Long id) {
+    public ResponseEntity<?> Eliminar(@PathVariable("id") Long id) {
         tipo_personaService.Eliminar(id);
         return ResponseEntity.ok(!tipo_personaService.ExistById(id));
     }
