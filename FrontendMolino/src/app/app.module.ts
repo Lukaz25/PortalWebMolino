@@ -16,6 +16,7 @@ import { SharedModule } from './Reutilizable/Shared/shared.module';
     LoginComponent,
     LayoutComponent,
 
+
   ],
   imports: [
     BrowserModule,

@@ -41,8 +41,8 @@ export class LoginComponent implements OnInit {
     }
     this._usuarioServicio.iniciarSesion(request).subscribe({
       next: (data) => {
-        if (data.status) {
-          this._utilidadServicio.GuardarSesionUsuario(data.value);
+        if (data) {
+          this._utilidadServicio.GuardarSesionUsuario(data);
           this.router.navigate(["pages"])
         } else
           this._utilidadServicio.MostrarAlerta("Usuario No Existe", "VERIFICAR")

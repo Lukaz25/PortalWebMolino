@@ -9,6 +9,7 @@ import { SharedModule } from 'src/app/Reutilizable/Shared/shared.module';
 import { ModalRolusuarioComponent } from './Modales/modal-rolusuario/modal-rolusuario.component';
 import { ModalUsuarioComponent } from './Modales/modal-usuario/modal-usuario.component';
 import { UsuarioComponent } from './Pages/usuario/usuario.component';
+import { ModalTipoPersonaComponent } from './Modales/modal-tipo-persona/modal-tipo-persona.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { UsuarioComponent } from './Pages/usuario/usuario.component';
     UsuarioComponent,
     ModalRolusuarioComponent,
     ModalUsuarioComponent,
+    ModalTipoPersonaComponent,
   ],
   imports: [
     CommonModule,

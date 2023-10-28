@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from 'rxjs';
 import { Login } from '../Interfaces/login';
+import { Sesion } from '../Interfaces/sesion';
 import { Usuario } from '../Interfaces/usuario';
 
 @Injectable({
@@ -12,8 +13,8 @@ export class UsuarioService {
   private urlApi:string="http://localhost:9090/api/Usuario";
   constructor(private httpClient: HttpClient) { }
 
-  public iniciarSesion(request:Login):Observable<any>{
-    return this.httpClient.post(`${this.urlApi}/IniciarSesion`,request); 
+  public iniciarSesion(request:Login):Observable<Sesion>{
+    return this.httpClient.post<Sesion>(`${this.urlApi}/IniciarSesion`,request); 
   }
   public ObtenerTodos():Observable<any>{
     return this.httpClient.get(`${this.urlApi}`);

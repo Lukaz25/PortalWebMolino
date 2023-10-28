@@ -9,29 +9,43 @@
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #sidenav opened="true" mode="side" hasBackdrop="false" style="width: 270px">
-      
-      <mat-divider></mat-divider>
-      <mat-nav-list>
+  <mat-sidenav
+    #sidenav
+    opened="true"
+    mode="side"
+    hasBackdrop="false"
+    style="width: 270px"
+  >
+    <mat-divider></mat-divider>
+    <mat-nav-list>
       <mat-list-item routerLink="/pages/dashboard">
-      <mat-icon mat-list-icon>home</mat-icon>
-      DashBoard
+        <mat-icon mat-list-icon>home</mat-icon>
+        DashBoard
       </mat-list-item>
 
-      <mat-list-item (click)="toggleMenu1()" >
+      <mat-list-item (click)="toggleMenu1()">
         <mat-icon mat-list-icon>list</mat-icon>Mantenimiento
         <mat-icon *ngIf="!showMenu1">chevron_right</mat-icon>
         <mat-icon *ngIf="showMenu1">expand_more</mat-icon>
       </mat-list-item>
-      <mat-nav-list class="sidenav-submenu" *ngIf="showMenu1" style="padding: 5px 25px 0; width: 100%;">
+      <mat-nav-list
+        class="sidenav-submenu"
+        *ngIf="showMenu1"
+        style="padding: 5px 25px 0; width: 100%"
+      >
         <mat-list-item routerLink="/pages/usuario">
-          <mat-icon mat-list-icon>add_business</mat-icon>Almacenes</mat-list-item>
-          <mat-list-item routerLink="/pages/usuario">
-            <mat-icon mat-list-icon>compost</mat-icon>Variedades</mat-list-item>
-        <mat-list-item routerLink="/pages/rolusuario">
-        <mat-icon mat-list-icon>groups</mat-icon>Tipo Personas</mat-list-item>
+          <mat-icon mat-list-icon>add_business</mat-icon
+          >Almacenes</mat-list-item
+        >
         <mat-list-item routerLink="/pages/usuario">
-        <mat-icon mat-list-icon>group_add</mat-icon>Personas</mat-list-item>
+          <mat-icon mat-list-icon>compost</mat-icon>Variedades</mat-list-item
+        >
+        <mat-list-item routerLink="/pages/tipo_persona">
+          <mat-icon mat-list-icon>groups</mat-icon>Tipo Personas</mat-list-item
+        >
+        <mat-list-item routerLink="/pages/usuario">
+          <mat-icon mat-list-icon>group_add</mat-icon>Personas</mat-list-item
+        >
       </mat-nav-list>
 
       <mat-list-item (click)="toggleMenu2()">
@@ -39,13 +53,21 @@
         <mat-icon *ngIf="!showMenu2">chevron_right</mat-icon>
         <mat-icon *ngIf="showMenu2">expand_more</mat-icon>
       </mat-list-item>
-      <mat-nav-list class="sidenav-submenu" *ngIf="showMenu2" style="padding: 5px 25px 0; width: 100%;">
+      <mat-nav-list
+        class="sidenav-submenu"
+        *ngIf="showMenu2"
+        style="padding: 5px 25px 0; width: 100%"
+      >
         <mat-list-item routerLink="/pages/rolusuario">
-        <mat-icon mat-list-icon>local_shipping</mat-icon>Ingreso Cascara</mat-list-item>
+          <mat-icon mat-list-icon>local_shipping</mat-icon>Ingreso
+          Cascara</mat-list-item
+        >
         <mat-list-item routerLink="/pages/usuario">
-        <mat-icon mat-list-icon>sunny</mat-icon>Secado</mat-list-item>
+          <mat-icon mat-list-icon>sunny</mat-icon>Secado</mat-list-item
+        >
         <mat-list-item routerLink="/pages/usuario">
-          <mat-icon mat-list-icon>move_down</mat-icon>Pilado</mat-list-item>
+          <mat-icon mat-list-icon>move_down</mat-icon>Pilado</mat-list-item
+        >
       </mat-nav-list>
       <mat-list-item (click)="toggleMenu3()">
         <mat-icon mat-list-icon>receipt_long</mat-icon>Reportes
@@ -58,11 +80,19 @@
         <mat-icon *ngIf="!showMenu4">chevron_right</mat-icon>
         <mat-icon *ngIf="showMenu4">expand_more</mat-icon>
       </mat-list-item>
-      <mat-nav-list class="sidenav-submenu" *ngIf="showMenu4" style="padding: 5px 25px 0; width: 100%;">
+      <mat-nav-list
+        class="sidenav-submenu"
+        *ngIf="showMenu4"
+        style="padding: 5px 25px 0; width: 100%"
+      >
         <mat-list-item routerLink="/pages/rolusuario">
-        <mat-icon mat-list-icon>admin_panel_settings</mat-icon>Roles</mat-list-item>
+          <mat-icon mat-list-icon>admin_panel_settings</mat-icon
+          >Roles</mat-list-item
+        >
         <mat-list-item routerLink="/pages/usuario">
-        <mat-icon mat-list-icon>perm_contact_calendar</mat-icon>Usuarios</mat-list-item>
+          <mat-icon mat-list-icon>perm_contact_calendar</mat-icon
+          >Usuarios</mat-list-item
+        >
       </mat-nav-list>
     </mat-nav-list>
   </mat-sidenav>

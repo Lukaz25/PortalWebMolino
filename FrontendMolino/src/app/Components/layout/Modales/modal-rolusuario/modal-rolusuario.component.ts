@@ -4,7 +4,6 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { Rolusuario } from 'src/app/Interfaces/rolusuario';
-
 import { RolusuarioService } from 'src/app/Services/rolusuario.service';
 import { UtilidadService } from 'src/app/Reutilizable/utilidad.service';
 @Component({
