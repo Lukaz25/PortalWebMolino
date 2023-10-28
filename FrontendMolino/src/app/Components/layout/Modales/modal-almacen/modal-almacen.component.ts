@@ -4,55 +4,55 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 
-import { TipoPersona } from 'src/app/Interfaces/tipo-persona';
-import { TipoPersonaService } from 'src/app/Services/tipo-persona.service';
+import { Almacen } from 'src/app/Interfaces/almacen';
+import { AlmacenService } from 'src/app/Services/almacen.service';
 import { UtilidadService } from 'src/app/Reutilizable/utilidad.service';
 
 @Component({
-  selector: 'app-modal-tipo-persona',
-  templateUrl: './modal-tipo-persona.component.html',
-  styleUrls: ['./modal-tipo-persona.component.css']
+  selector: 'app-modal-almacen',
+  templateUrl: './modal-almacen.component.html',
+  styleUrls: ['./modal-almacen.component.css']
 })
-export class ModalTipoPersonaComponent implements OnInit {
+export class ModalAlmacenComponent implements OnInit {
 
-  formularioTipoPersona: FormGroup;
+  formularioAlmacen: FormGroup;
   tituloAccion: string = "Agregar";
   botonAccion: string = "Guardar"
   constructor(
-    private modalActual: MatDialogRef<ModalTipoPersonaComponent>,
-    @Inject(MAT_DIALOG_DATA) public datosTipoPersona: TipoPersona,
+    private modalActual: MatDialogRef<ModalAlmacenComponent>,
+    @Inject(MAT_DIALOG_DATA) public datosAlmacen: Almacen,
     private fb: FormBuilder,
-    private _TipoPersonaServicio: TipoPersonaService,
+    private _AlmacenServicio: AlmacenService,
     private _utilidadServicio: UtilidadService
 
   ) {
-    this.formularioTipoPersona = this.fb.group({
-      idtipo_persona:[''],
+    this.formularioAlmacen = this.fb.group({
+      idalmacen:[''],
       descripcion: ['', Validators.required],
     });
-if(this.datosTipoPersona!=null){
+if(this.datosAlmacen!=null){
   this.tituloAccion="Editar";
   this.botonAccion="Actualizar";
 }
   }
   ngOnInit(): void {
 
-    if(this.datosTipoPersona!= null){
-      this.formularioTipoPersona.patchValue({
-        idtipo_persona:this.datosTipoPersona.idtipo_persona,
-        descripcion:this.datosTipoPersona.descripcion,
+    if(this.datosAlmacen!= null){
+      this.formularioAlmacen.patchValue({
+        idalmacen:this.datosAlmacen.idalmacen,
+        descripcion:this.datosAlmacen.descripcion,
         estado:'0'
       })
     }
   }
-  GuardarEditar_TipoPersona(){
-    const _tipopersona :TipoPersona={
-      idtipo_persona:this.datosTipoPersona==null? 0: this.datosTipoPersona.idtipo_persona,
-      descripcion:this.formularioTipoPersona.value.descripcion,
+  GuardarEditar_Almacen(){
+    const _almacen :Almacen={
+      idalmacen:this.datosAlmacen==null? 0: this.datosAlmacen.idalmacen,
+      descripcion:this.formularioAlmacen.value.descripcion,
       estado : '0',
     }
-    if(this.datosTipoPersona==null){
-      this._TipoPersonaServicio.Crear(_tipopersona).subscribe({
+    if(this.datosAlmacen==null){
+      this._AlmacenServicio.Crear(_almacen).subscribe({
         next:(data)=>{
           if(data){
             this._utilidadServicio.MostrarAlerta("Se registro correctamente","EXITO");
@@ -62,7 +62,7 @@ if(this.datosTipoPersona!=null){
         },error:(e)=>{}
       });
     }else{
-      this._TipoPersonaServicio.Actualizar(_tipopersona).subscribe({
+      this._AlmacenServicio.Actualizar(_almacen).subscribe({
         next:(data)=>{
           if(data){
             this._utilidadServicio.MostrarAlerta("Se Edito correctamente","EXITO");

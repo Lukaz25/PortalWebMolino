@@ -1,14 +1,14 @@
-<h2 mat-dialog-title>{{tituloAccion}} Tipo de Persona</h2>
+<h2 mat-dialog-title>{{tituloAccion}} Almacen </h2>
 <mat-divider inset></mat-divider>
 <mat-dialog-content>
 
-    <form [formGroup]="formularioTipoPersona">
+    <form [formGroup]="formularioAlmacen">
         <mat-grid-list cols="1" rowHeight="100px">
 
             <mat-grid-tile disable>
                 <mat-form-field appearance="outline">
                     <mat-label>Codigo</mat-label>
-                    <input matInput autocomplete="off" formControlName="idtipo_persona" readonly>
+                    <input matInput autocomplete="off" formControlName="idalmacen" readonly>
                 </mat-form-field>
             </mat-grid-tile>
 
@@ -26,7 +26,7 @@
 
 <mat-dialog-actions align="end">
     <button mat-raised-button mat-dialog-close color="warn">Volver</button>
-    <button mat-raised-button color="primary" [disabled]="formularioTipoPersona.invalid"
-        (click)="GuardarEditar_TipoPersona()">{{botonAccion}}
+    <button mat-raised-button color="primary" [disabled]="formularioAlmacen.invalid"
+        (click)="GuardarEditar_Almacen()">{{botonAccion}}
     </button>
 </mat-dialog-actions>

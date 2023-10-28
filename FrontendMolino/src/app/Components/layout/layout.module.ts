@@ -10,6 +10,10 @@ import { ModalRolusuarioComponent } from './Modales/modal-rolusuario/modal-rolus
 import { ModalUsuarioComponent } from './Modales/modal-usuario/modal-usuario.component';
 import { UsuarioComponent } from './Pages/usuario/usuario.component';
 import { ModalTipoPersonaComponent } from './Modales/modal-tipo-persona/modal-tipo-persona.component';
+import { ModalAlmacenComponent } from './Modales/modal-almacen/modal-almacen.component';
+import { ModalVariedadComponent } from './Modales/modal-variedad/modal-variedad.component';
+import { AlmacenComponent } from './Pages/almacen/almacen.component';
+import { VariedadComponent } from './Pages/variedad/variedad.component';
 
 
 @NgModule({
@@ -21,6 +25,10 @@ import { ModalTipoPersonaComponent } from './Modales/modal-tipo-persona/modal-ti
     ModalRolusuarioComponent,
     ModalUsuarioComponent,
     ModalTipoPersonaComponent,
+    ModalAlmacenComponent,
+    ModalVariedadComponent,
+    AlmacenComponent,
+    VariedadComponent,
   ],
   imports: [
     CommonModule,

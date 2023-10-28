@@ -4,5 +4,6 @@ mat-form-field{
     margin: 10px 0px;
 }
 form{
+    flex: auto;
     width: 400px;
 }
