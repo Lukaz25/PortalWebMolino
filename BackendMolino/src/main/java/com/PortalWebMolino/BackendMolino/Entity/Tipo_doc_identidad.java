@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.lang.NonNull;
 
 @Getter
 @Setter
@@ -13,12 +12,9 @@ import org.springframework.lang.NonNull;
 @Table(name = "tipo_doc_identidad")
 public class Tipo_doc_identidad {
     @Id
+    @Column(name = "idtipo_doc_identidad")
     private String idtipo_doc_identidad;
-    @Column(name = "descripcion")
-    private String nombre;
-    @Column(name = "longitud")
-    @NonNull
+
+    private String descripcion;
     private Double longitud;
-
-
 }

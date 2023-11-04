@@ -1,5 +1,6 @@
 package com.PortalWebMolino.BackendMolino.Repository;
 
+
 import com.PortalWebMolino.BackendMolino.Entity.Rolusuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -7,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IRolusuarioRepository extends JpaRepository<Rolusuario, Long> {
+public interface IRolusuarioRepository extends JpaRepository<Rolusuario,Long> {
     @Query("SELECT ru FROM Rolusuario ru WHERE ru.idrol= :id")
     Rolusuario findByID(@Param("id") Long id);
 }

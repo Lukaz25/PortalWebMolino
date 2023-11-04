@@ -7,37 +7,36 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
 @Service
 public class VariedadService {
     @Autowired
-    IVariedadRepository iVariedadRepository;
+    IVariedadRepository iRepository;
 
     public Variedad Crear(Variedad variedad) {
-        return iVariedadRepository.save(variedad);
+        return iRepository.save(variedad);
     }
 
     public List<Variedad> ObtenerTodos() {
-        return iVariedadRepository.findAll();
+        return iRepository.findAll();
     }
 
     public Optional<Variedad> ObtenerporId(Long id) {
-        return Optional.ofNullable(iVariedadRepository.findByID(id));
-
+        return Optional.ofNullable(iRepository.findByID(id));
     }
+
     public Variedad Actualizar(Variedad variedad) {
-        if (variedad.getIdvariedad() != null && iVariedadRepository.existsById(variedad.getIdvariedad())) {
-            return iVariedadRepository.save(variedad);
+        if (variedad.getIdvariedad() != null && iRepository.existsById(variedad.getIdvariedad())) {
+            return iRepository.save(variedad);
         }
         return null;
     }
 
     public void Eliminar(Long id) {
-        iVariedadRepository.deleteById(id);
+        iRepository.deleteById(id);
     }
 
     public boolean ExistById(Long id) {
-        return iVariedadRepository.existsById(id);
+        return iRepository.existsById(id);
     }
-}
 
+}

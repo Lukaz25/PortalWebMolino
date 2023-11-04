@@ -1,12 +1,12 @@
 package com.PortalWebMolino.BackendMolino.Entity;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.lang.NonNull;
 
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,10 +16,11 @@ import org.springframework.lang.NonNull;
 public class Rolusuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idrol")
     private Long idrol;
-
-    @Column(name = "nombre")
-    @NonNull
     private String nombre;
 
+    @JsonIgnore
+    @OneToMany(mappedBy ="rolusuario")
+    private List<Usuario> usuarios;
 }

@@ -14,6 +14,7 @@ import { ModalAlmacenComponent } from './Modales/modal-almacen/modal-almacen.com
 import { ModalVariedadComponent } from './Modales/modal-variedad/modal-variedad.component';
 import { AlmacenComponent } from './Pages/almacen/almacen.component';
 import { VariedadComponent } from './Pages/variedad/variedad.component';
+import { ModalPersonaComponent } from './Modales/modal-persona/modal-persona.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { VariedadComponent } from './Pages/variedad/variedad.component';
     ModalVariedadComponent,
     AlmacenComponent,
     VariedadComponent,
+    ModalPersonaComponent,
   ],
   imports: [
     CommonModule,

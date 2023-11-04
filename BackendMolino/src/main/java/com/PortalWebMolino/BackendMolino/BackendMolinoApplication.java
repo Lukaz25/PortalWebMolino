@@ -2,9 +2,10 @@ package com.PortalWebMolino.BackendMolino;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication
-public class  BackendMolinoApplication {
+@SpringBootApplication(scanBasePackages= "com.PortalWebMolino.BackendMolino.Repository")
+public class BackendMolinoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackendMolinoApplication.class, args);

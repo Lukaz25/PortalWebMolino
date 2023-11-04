@@ -1,5 +1,4 @@
-package com.PortalWebMolino.BackendMolino.Entity.Dto;
-
+package com.PortalWebMolino.BackendMolino.Dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,6 +8,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class LoginDto {
-private String username ;
-private String password;
+    private String username ;
+    private String password;
 }

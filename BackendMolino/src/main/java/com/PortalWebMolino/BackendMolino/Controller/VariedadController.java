@@ -1,5 +1,4 @@
 package com.PortalWebMolino.BackendMolino.Controller;
-
 import com.PortalWebMolino.BackendMolino.Entity.Variedad;
 import com.PortalWebMolino.BackendMolino.Service.VariedadService;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+
 @RestController
 @RequestMapping("api/Variedad")
 @RequiredArgsConstructor

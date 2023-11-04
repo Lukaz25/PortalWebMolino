@@ -1,0 +1,9 @@
+mat-form-field{
+    flex: auto;
+    width: 100%;
+    margin: 10px 0px;
+}
+form{
+    flex: auto;
+    width: 400px;
+}

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+
 @RestController
 @RequestMapping("api/Rolusuario")
 @RequiredArgsConstructor
@@ -46,3 +46,4 @@ public class RolusuarioController {
         return ResponseEntity.ok(!rolusuarioService.ExistById(id));
     }
 }
+

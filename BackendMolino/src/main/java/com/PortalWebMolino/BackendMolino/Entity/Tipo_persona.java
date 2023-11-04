@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.lang.NonNull;
-import org.springframework.lang.Nullable;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -14,12 +13,9 @@ import org.springframework.lang.Nullable;
 public class Tipo_persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idtipo_persona")
     private Long idtipo_persona;
-    @Column(name = "descripcion")
-    @NonNull
-    private String descripcion;
-    @Column(name = "estado")
-    @Nullable
-    private String estado;
 
+    private String descripcion;
+    private String estado;
 }

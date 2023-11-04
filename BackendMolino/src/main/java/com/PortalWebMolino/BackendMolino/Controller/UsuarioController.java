@@ -1,7 +1,6 @@
 package com.PortalWebMolino.BackendMolino.Controller;
-
-import com.PortalWebMolino.BackendMolino.Entity.Dto.LoginDto;
-import com.PortalWebMolino.BackendMolino.Entity.Dto.SesionDto;
+import com.PortalWebMolino.BackendMolino.Dto.LoginDto;
+import com.PortalWebMolino.BackendMolino.Dto.SesionDto;
 import com.PortalWebMolino.BackendMolino.Entity.Usuario;
 import com.PortalWebMolino.BackendMolino.Service.UsuarioService;
 import lombok.RequiredArgsConstructor;
@@ -14,8 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-//@CrossOrigin(origins = "http://localhost:4200")
-@CrossOrigin(origins = "*",maxAge = 3600)
+
 
 @RestController
 @RequestMapping("api/Usuario")
@@ -25,8 +23,8 @@ public class UsuarioController {
     private UsuarioService usuarioService;
     @PostMapping("/IniciarSesion")
     public ResponseEntity<SesionDto> iniciarSesion(@Valid @RequestBody LoginDto loginDto) {
-            SesionDto sesionDto = usuarioService.IniciarSesion(loginDto.getUsername(), loginDto.getPassword());
-            return ResponseEntity.ok(sesionDto);
+        SesionDto sesionDto = usuarioService.IniciarSesion(loginDto.getUsername(), loginDto.getPassword());
+        return ResponseEntity.ok(sesionDto);
     }
     @PostMapping
     public ResponseEntity<Usuario> Crear(@Valid @RequestBody Usuario usuario) {

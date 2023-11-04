@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IVariedadRepository  extends JpaRepository<Variedad, Long> {
-@Query("SELECT v FROM Variedad v WHERE v.idvariedad= :id")
+public interface IVariedadRepository extends JpaRepository<Variedad,Long> {
+    @Query("SELECT v FROM Variedad v WHERE v.idvariedad= :id")
     Variedad findByID(@Param("id") Long id);
 }

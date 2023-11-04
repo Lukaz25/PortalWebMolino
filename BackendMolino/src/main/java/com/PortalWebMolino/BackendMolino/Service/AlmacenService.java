@@ -5,37 +5,42 @@ import com.PortalWebMolino.BackendMolino.Repository.IAlmacenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+
+
 @Service
 public class AlmacenService {
+
+    IAlmacenRepository iRepository;
     @Autowired
-    IAlmacenRepository iAlmacenRepository;
+    public AlmacenService(IAlmacenRepository iRepository){
+        this.iRepository=iRepository;
+    }
 
     public Almacen Crear(Almacen almacen) {
-        return iAlmacenRepository.save(almacen);
+        return iRepository.save(almacen);
     }
 
     public List<Almacen> ObtenerTodos() {
-        return iAlmacenRepository.findAll();
+        return iRepository.findAll();
     }
 
     public Optional<Almacen> ObtenerporId(Long id) {
-        return Optional.ofNullable(iAlmacenRepository.findByID(id));
-
+        return Optional.ofNullable(iRepository.findByID(id));
     }
+
     public Almacen Actualizar(Almacen almacen) {
-        if (almacen.getIdalmacen() != null && iAlmacenRepository.existsById(almacen.getIdalmacen())) {
-            return iAlmacenRepository.save(almacen);
+        if (almacen.getIdalmacen() != null && iRepository.existsById(almacen.getIdalmacen())) {
+            return iRepository.save(almacen);
         }
         return null;
     }
 
     public void Eliminar(Long id) {
-        iAlmacenRepository.deleteById(id);
+        iRepository.deleteById(id);
     }
 
     public boolean ExistById(Long id) {
-        return iAlmacenRepository.existsById(id);
+        return iRepository.existsById(id);
     }
 }
