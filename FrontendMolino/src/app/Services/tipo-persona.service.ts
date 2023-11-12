@@ -14,7 +14,7 @@ export class TipoPersonaService {
     return this.httpClient.get<TipoPersona[]>(`${this.urlApi}`);
   }
   public ObtenerporId(id:number):Observable<TipoPersona>{
-    return  this.httpClient.get<TipoPersona>(`${this.urlApi}?id=${id}`);
+    return  this.httpClient.get<TipoPersona>(`${this.urlApi}/${id}`);
   }
   public Crear(request:TipoPersona):Observable<Object>{
     return this.httpClient.post(`${this.urlApi}`,request);
@@ -23,6 +23,6 @@ export class TipoPersonaService {
     return this.httpClient.put(`${this.urlApi}`,request);
   }
   public Eliminar(id:number):Observable<Object>{
-    return this.httpClient.delete(`${this.urlApi}?id=${id}`);
+    return this.httpClient.delete(`${this.urlApi}/${id}`);
   }
 }

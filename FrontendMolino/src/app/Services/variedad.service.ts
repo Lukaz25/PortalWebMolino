@@ -14,7 +14,7 @@ export class VariedadService {
     return this.httpClient.get<Variedad[]>(`${this.urlApi}`);
   }
   public ObtenerporId(id:number):Observable<Variedad>{
-    return  this.httpClient.get<Variedad>(`${this.urlApi}?id=${id}`);
+    return  this.httpClient.get<Variedad>(`${this.urlApi}/${id}`);
   }
   public Crear(request:Variedad):Observable<Object>{
     return this.httpClient.post(`${this.urlApi}`,request);
@@ -23,6 +23,6 @@ export class VariedadService {
     return this.httpClient.put(`${this.urlApi}`,request);
   }
   public Eliminar(id:number):Observable<Object>{
-    return this.httpClient.delete(`${this.urlApi}?id=${id}`);
+    return this.httpClient.delete(`${this.urlApi}/${id}`);
   }
 }

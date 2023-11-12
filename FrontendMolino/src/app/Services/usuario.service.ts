@@ -20,7 +20,7 @@ export class UsuarioService {
     return this.httpClient.get(`${this.urlApi}`);
   }
   public ObtenerporId(id:number):Observable<any>{
-    return this.httpClient.get(`${this.urlApi}?id=${id}`);
+    return this.httpClient.get(`${this.urlApi}/${id}`);
   }
   public Crear(request:Usuario):Observable<any>{
     return this.httpClient.post(`${this.urlApi}`,request);
@@ -29,6 +29,6 @@ export class UsuarioService {
     return this.httpClient.put(`${this.urlApi}`,request);
   }
   public Eliminar(id:number):Observable<any>{
-    return this.httpClient.delete(`${this.urlApi}?id=${id}`);
+    return this.httpClient.delete(`${this.urlApi}/${id}`);
   }
 }

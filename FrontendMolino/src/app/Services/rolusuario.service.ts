@@ -14,7 +14,7 @@ private urlApi:string="http://localhost:9090/api/Rolusuario";
     return this.httpClient.get<Rolusuario[]>(`${this.urlApi}`);
   }
   public ObtenerporId(id:number):Observable<Rolusuario>{
-    return  this.httpClient.get<Rolusuario>(`${this.urlApi}?id=${id}`);
+    return  this.httpClient.get<Rolusuario>(`${this.urlApi}/${id}`);
   }
   public Crear(request:Rolusuario):Observable<Object>{
     return this.httpClient.post(`${this.urlApi}`,request);
@@ -23,6 +23,6 @@ private urlApi:string="http://localhost:9090/api/Rolusuario";
     return this.httpClient.put(`${this.urlApi}`,request);
   }
   public Eliminar(id:number):Observable<Object>{
-    return this.httpClient.delete(`${this.urlApi}?id=${id}`);
+    return this.httpClient.delete(`${this.urlApi}/${id}`);
   }
 }
