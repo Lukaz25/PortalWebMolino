@@ -2,6 +2,7 @@ package com.PortalWebMolino.BackendMolino.Service;
 
 import com.PortalWebMolino.BackendMolino.Entity.Almacen;
 import com.PortalWebMolino.BackendMolino.Repository.IAlmacenRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,14 +10,10 @@ import java.util.*;
 
 
 @Service
+@RequiredArgsConstructor
 public class AlmacenService {
-
-    IAlmacenRepository iRepository;
     @Autowired
-    public AlmacenService(IAlmacenRepository iRepository){
-        this.iRepository=iRepository;
-    }
-
+    IAlmacenRepository iRepository;
     public Almacen Crear(Almacen almacen) {
         return iRepository.save(almacen);
     }

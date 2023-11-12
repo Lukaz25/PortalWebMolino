@@ -2,12 +2,14 @@ package com.PortalWebMolino.BackendMolino.Service;
 
 import com.PortalWebMolino.BackendMolino.Entity.Tipo_doc_identidad;
 import com.PortalWebMolino.BackendMolino.Repository.ITipo_doc_identidadRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
+@RequiredArgsConstructor
 public class Tipo_doc_identidadService {
     @Autowired
     ITipo_doc_identidadRepository iRepository;

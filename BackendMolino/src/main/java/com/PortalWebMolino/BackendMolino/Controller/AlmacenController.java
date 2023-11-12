@@ -17,11 +17,13 @@ import java.util.*;
 public class AlmacenController {
     @Autowired
     private AlmacenService almacenService;
+
     @PostMapping
     public ResponseEntity<Almacen> Crear(@Valid @RequestBody Almacen almacen) {
         return
                 new ResponseEntity<>(almacenService.Crear(almacen), HttpStatus.CREATED);
     }
+
     @GetMapping
     public List<Almacen> ObtenerTodos() {
         return almacenService.ObtenerTodos();
@@ -36,8 +38,9 @@ public class AlmacenController {
     public ResponseEntity<Almacen> Actualizar(@Valid @RequestBody Almacen almacen) {
         return ResponseEntity.status(HttpStatus.CREATED).body(almacenService.Actualizar(almacen));
     }
+
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<?> Eliminar(@PathVariable("id") Long id) {
+    public ResponseEntity<Boolean> Eliminar(@PathVariable("id") Long id) {
         almacenService.Eliminar(id);
         return ResponseEntity.ok(!almacenService.ExistById(id));
     }

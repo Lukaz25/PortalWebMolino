@@ -2,12 +2,14 @@ package com.PortalWebMolino.BackendMolino.Service;
 
 import com.PortalWebMolino.BackendMolino.Entity.Variedad;
 import com.PortalWebMolino.BackendMolino.Repository.IVariedadRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 @Service
+@RequiredArgsConstructor
 public class VariedadService {
     @Autowired
     IVariedadRepository iRepository;

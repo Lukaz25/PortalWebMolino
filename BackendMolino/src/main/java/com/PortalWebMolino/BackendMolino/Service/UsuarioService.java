@@ -3,11 +3,14 @@ package com.PortalWebMolino.BackendMolino.Service;
 import com.PortalWebMolino.BackendMolino.Dto.SesionDto;
 import com.PortalWebMolino.BackendMolino.Entity.Usuario;
 import com.PortalWebMolino.BackendMolino.Repository.IUsuarioRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 @Service
+@RequiredArgsConstructor
 public class UsuarioService {
     @Autowired
     IUsuarioRepository iRepository;
@@ -18,15 +21,19 @@ public class UsuarioService {
             usuario = iRepository.findByEmailandPass(username, pass);
         }
         if (usuario != null) {
-            return crearSesionDto(usuario);
+            return new SesionDto(usuario.getIdusuario(),
+                    usuario.getEmail(),
+                    usuario.getUsername(),
+                    "SOPORTE",
+                    "token");
         } else {
             return null;
         }
     }
-    private SesionDto crearSesionDto(Usuario usuario) {
-
-        return new SesionDto(usuario.getIdusuario(), usuario.getEmail(), usuario.getUsername(), usuario.getRolusuario().getNombre().toString());
-    }
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
     public Usuario Crear(Usuario usuario) {
         return iRepository.save(usuario);
     }

@@ -9,10 +9,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class SesionDto {
-    private Long idusuario;
-    private String personaDescripcion;
-    private String username;
-    private String rolNombre;
-    private String token;
+public class ErrorDto{
+        private String message;
 }
