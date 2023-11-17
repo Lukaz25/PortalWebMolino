@@ -25,12 +25,17 @@
 
       <mat-list-item (click)="toggleMenu1()">
         <mat-icon mat-list-icon>list</mat-icon>Mantenimiento
-        <mat-icon *ngIf="!showMenu1">chevron_right</mat-icon>
-        <mat-icon *ngIf="showMenu1">expand_more</mat-icon>
+        @if (!showMenu1) {
+<mat-icon>chevron_right</mat-icon>
+}
+        @if (showMenu1) {
+<mat-icon>expand_more</mat-icon>
+}
       </mat-list-item>
-      <mat-nav-list
+      @if (showMenu1) {
+<mat-nav-list
         class="sidenav-submenu"
-        *ngIf="showMenu1"
+       
         style="padding: 5px 25px 0; width: 100%"
       >
         <mat-list-item routerLink="/pages/almacen">
@@ -47,15 +52,21 @@
           <mat-icon mat-list-icon>group_add</mat-icon>Personas</mat-list-item
         >
       </mat-nav-list>
+}
 
       <mat-list-item (click)="toggleMenu2()">
         <mat-icon mat-list-icon>account_tree</mat-icon>Procesos
-        <mat-icon *ngIf="!showMenu2">chevron_right</mat-icon>
-        <mat-icon *ngIf="showMenu2">expand_more</mat-icon>
+        @if (!showMenu2) {
+<mat-icon>chevron_right</mat-icon>
+}
+        @if (showMenu2) {
+<mat-icon>expand_more</mat-icon>
+}
       </mat-list-item>
-      <mat-nav-list
+      @if (showMenu2) {
+<mat-nav-list
         class="sidenav-submenu"
-        *ngIf="showMenu2"
+       
         style="padding: 5px 25px 0; width: 100%"
       >
         <mat-list-item routerLink="/pages/rolusuario">
@@ -69,20 +80,30 @@
           <mat-icon mat-list-icon>move_down</mat-icon>Pilado</mat-list-item
         >
       </mat-nav-list>
+}
       <mat-list-item (click)="toggleMenu3()">
         <mat-icon mat-list-icon>receipt_long</mat-icon>Reportes
-        <mat-icon *ngIf="!showMenu3">chevron_right</mat-icon>
-        <mat-icon *ngIf="showMenu3">expand_more</mat-icon>
+        @if (!showMenu3) {
+<mat-icon>chevron_right</mat-icon>
+}
+        @if (showMenu3) {
+<mat-icon>expand_more</mat-icon>
+}
       </mat-list-item>
 
       <mat-list-item (click)="toggleMenu4()">
         <mat-icon mat-list-icon>manage_accounts</mat-icon>Administración
-        <mat-icon *ngIf="!showMenu4">chevron_right</mat-icon>
-        <mat-icon *ngIf="showMenu4">expand_more</mat-icon>
+        @if (!showMenu4) {
+<mat-icon>chevron_right</mat-icon>
+}
+        @if (showMenu4) {
+<mat-icon>expand_more</mat-icon>
+}
       </mat-list-item>
-      <mat-nav-list
+      @if (showMenu4) {
+<mat-nav-list
         class="sidenav-submenu"
-        *ngIf="showMenu4"
+       
         style="padding: 5px 25px 0; width: 100%"
       >
         <mat-list-item routerLink="/pages/rolusuario">
@@ -94,6 +115,7 @@
           >Usuarios</mat-list-item
         >
       </mat-nav-list>
+}
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

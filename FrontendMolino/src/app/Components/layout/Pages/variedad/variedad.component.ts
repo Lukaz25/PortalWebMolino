@@ -1,7 +1,7 @@
 import { Component,OnInit, AfterViewInit, ViewChild } from '@angular/core';
 
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ModalVariedadComponent } from '../../Modales/modal-variedad/modal-variedad.component';
@@ -10,11 +10,19 @@ import { VariedadService } from 'src/app/Services/variedad.service';
 import { UtilidadService } from 'src/app/Reutilizable/utilidad.service';
 
 import Swal from 'sweetalert2';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-variedad',
-  templateUrl: './variedad.component.html',
-  styleUrls: ['./variedad.component.css']
+    selector: 'app-variedad',
+    templateUrl: './variedad.component.html',
+    styleUrls: ['./variedad.component.css'],
+    standalone: true,
+    imports: [MatCardModule, MatButtonModule, MatIconModule, MatDividerModule, MatFormFieldModule, MatInputModule, MatTableModule, MatPaginatorModule]
 })
 export class VariedadComponent implements OnInit, AfterViewInit{
 

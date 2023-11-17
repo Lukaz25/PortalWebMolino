@@ -1,17 +1,24 @@
 import { Component, OnInit, Inject } from '@angular/core';
 
-import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Form, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 
 import { TipoPersona } from 'src/app/Interfaces/tipo-persona';
 import { TipoPersonaService } from 'src/app/Services/tipo-persona.service';
 import { UtilidadService } from 'src/app/Reutilizable/utilidad.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
-  selector: 'app-modal-tipo-persona',
-  templateUrl: './modal-tipo-persona.component.html',
-  styleUrls: ['./modal-tipo-persona.component.css']
+    selector: 'app-modal-tipo-persona',
+    templateUrl: './modal-tipo-persona.component.html',
+    styleUrls: ['./modal-tipo-persona.component.css'],
+    standalone: true,
+    imports: [MatDialogTitle, MatDividerModule, MatDialogContent, ReactiveFormsModule, MatGridListModule, MatFormFieldModule, MatInputModule, MatDialogActions, MatButtonModule, MatDialogClose]
 })
 export class ModalTipoPersonaComponent implements OnInit {
 

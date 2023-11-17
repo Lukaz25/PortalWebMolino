@@ -1,8 +1,8 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 
 
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ModalRolusuarioComponent } from '../../Modales/modal-rolusuario/modal-rolusuario.component';
@@ -11,12 +11,20 @@ import { RolusuarioService } from 'src/app/Services/rolusuario.service';
 import { UtilidadService } from 'src/app/Reutilizable/utilidad.service';
 
 import Swal from 'sweetalert2';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 
 @Component({
-  selector: 'app-rolusuario',
-  templateUrl: './rolusuario.component.html',
-  styleUrls: ['./rolusuario.component.css']
+    selector: 'app-rolusuario',
+    templateUrl: './rolusuario.component.html',
+    styleUrls: ['./rolusuario.component.css'],
+    standalone: true,
+    imports: [MatCardModule, MatButtonModule, MatIconModule, MatDividerModule, MatFormFieldModule, MatInputModule, MatTableModule, MatPaginatorModule]
 })
 export class RolusuarioComponent implements OnInit, AfterViewInit {
 

@@ -15,27 +15,27 @@ import { ModalVariedadComponent } from './Modales/modal-variedad/modal-variedad.
 import { AlmacenComponent } from './Pages/almacen/almacen.component';
 import { VariedadComponent } from './Pages/variedad/variedad.component';
 import { ModalPersonaComponent } from './Modales/modal-persona/modal-persona.component';
+import { PersonaComponent } from './Pages/persona/persona.component';
 
 
 @NgModule({
-  declarations: [
-    DashboardComponent,
-    RolusuarioComponent,
-    TipoPersonaComponent,
-    UsuarioComponent,
-    ModalRolusuarioComponent,
-    ModalUsuarioComponent,
-    ModalTipoPersonaComponent,
-    ModalAlmacenComponent,
-    ModalVariedadComponent,
-    AlmacenComponent,
-    VariedadComponent,
-    ModalPersonaComponent,
-  ],
-  imports: [
-    CommonModule,
-    LayoutRoutingModule,
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        LayoutRoutingModule,
+        SharedModule,
+        DashboardComponent,
+        RolusuarioComponent,
+        TipoPersonaComponent,
+        UsuarioComponent,
+        ModalRolusuarioComponent,
+        ModalUsuarioComponent,
+        ModalTipoPersonaComponent,
+        ModalAlmacenComponent,
+        ModalVariedadComponent,
+        AlmacenComponent,
+        VariedadComponent,
+        ModalPersonaComponent,
+        PersonaComponent
+    ]
 })
 export class LayoutModule { }
