@@ -17,7 +17,7 @@ import lombok.Setter;
 @Table(name = "ubigeo")
 public class Ubigeo {
     @Id
-    @Column(name = "idubigeo")
+    @Column(name = "idubigeo",length = 6)
     private String idubigeo;
 
     private String distrito;
