@@ -1,1 +1,56 @@
-<p>modal-persona works!</p>
+<body>
+    <h3 mat-dialog-title>{{tituloAccion}} Persona </h3>
+    <mat-divider inset></mat-divider>
+    <mat-dialog-content>
+        <form [formGroup]="formularioPersona">
+            <mat-grid-list cols="3" rowHeight="100px">
+                <mat-grid-tile disable>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Codigo</mat-label>
+                        <input matInput formControlName="idpersona" readonly>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="2">
+                    <mat-form-field appearance="outline" autofocus>
+                        <mat-label>Tipo Persona</mat-label>
+                        <mat-select formControlName="TipoPersona">
+                            @for (element of listaTipPer; track element) {
+                            <mat-option [value]="element.idtipo_persona">{{element.descripcion}}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="2">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Tipo Documento</mat-label>
+                        <mat-select formControlName="TipoDocIdentidad">
+                            @for (element of listaTipDoc; track element) {
+                            <mat-option [value]="element.idtipo_doc_identidad">{{element.descripcion}}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nro Documento</mat-label>
+                        <input matInput formControlName="nro_doc_identidad" >
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="3">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nombre Completo</mat-label>
+                        <input matInput formControlName="nombre" >
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </form>
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+        <button mat-raised-button color="primary" [disabled]="formularioPersona.invalid"
+            (click)="GuardarEditar_Almacen()">{{botonAccion}}
+        </button>
+    </mat-dialog-actions>
+</body>

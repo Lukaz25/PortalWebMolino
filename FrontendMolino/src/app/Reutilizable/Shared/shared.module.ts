@@ -31,12 +31,14 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { MatNativeDateModule } from '@angular/material/core';
 import { MomentDateModule } from '@angular/material-moment-adapter';
+import { MatSelectTrigger } from '@angular/material/select';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     CommonModule,
@@ -49,6 +51,7 @@ import { MomentDateModule } from '@angular/material-moment-adapter';
     MatProgressSpinnerModule,
     MatGridListModule,
     LayoutModule,
+    FlexLayoutModule,
     MatToolbarModule,
     MatSidenavModule,
     MatExpansionModule,
@@ -68,7 +71,8 @@ import { MomentDateModule } from '@angular/material-moment-adapter';
   ],
   providers:[
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSelectTrigger
   ]
 })
 export class SharedModule { }

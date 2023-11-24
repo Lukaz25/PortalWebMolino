@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from 'rxjs';
 import { TipoPersona } from '../Interfaces/tipo-persona';
+import { apiServer } from '../apiServer';
 @Injectable({
   providedIn: 'root'
 })
 export class TipoPersonaService {
 
-  private urlApi:string="http://localhost:9090/api/Tipo_persona";
+  private urlApi:String=apiServer.ServerUrl+"Tipo_persona";
   constructor(private httpClient: HttpClient) { }
 
   public ObtenerTodos():Observable<TipoPersona[]>{

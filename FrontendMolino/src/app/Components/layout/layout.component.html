@@ -1,126 +1,63 @@
-<mat-toolbar color="primary" style="display: flex">
-  <mat-toolbar-row>
-    Sistema Gestión Molino
-    <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span style="flex: 1 1 auto"></span>
-    <button mat-icon-button><mat-icon>logout</mat-icon></button>
-  </mat-toolbar-row>
-</mat-toolbar>
-<mat-sidenav-container>
-  <mat-sidenav
-    #sidenav
-    opened="true"
-    mode="side"
-    hasBackdrop="false"
-    style="width: 270px"
-  >
-    <mat-divider></mat-divider>
-    <mat-nav-list>
-      <mat-list-item routerLink="/pages/dashboard">
-        <mat-icon mat-list-icon>home</mat-icon>
-        DashBoard
-      </mat-list-item>
+<body>
+  <mat-toolbar color="primary" style="display: flex">
+    <mat-toolbar-row>
+      <img src="./assets/img/logo.png" width="70px auto" style="background-size: cover;" fxHide.lt-sm fxShow>
+      <label class="lbLogo2" fxHide.lt-sm fxShow>MolinoGestorWeb</label>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span style="flex: 1 1 auto;"></span>
+      <label style="font-size: 14px; margin-right: 20px;">
+        {{nombreUsuario}}</label>
+      <button mat-icon-button (click)="CerrarSesion()"><mat-icon>logout</mat-icon></button>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-      <mat-list-item (click)="toggleMenu1()">
-        <mat-icon mat-list-icon>list</mat-icon>Mantenimiento
-        @if (!showMenu1) {
-<mat-icon>chevron_right</mat-icon>
-}
-        @if (showMenu1) {
-<mat-icon>expand_more</mat-icon>
-}
-      </mat-list-item>
-      @if (showMenu1) {
-<mat-nav-list
-        class="sidenav-submenu"
-       
-        style="padding: 5px 25px 0; width: 100%"
-      >
-        <mat-list-item routerLink="/pages/almacen">
-          <mat-icon mat-list-icon>add_business</mat-icon
-          >Almacenes</mat-list-item
-        >
-        <mat-list-item routerLink="/pages/variedad">
-          <mat-icon mat-list-icon>compost</mat-icon>Variedades</mat-list-item
-        >
-        <mat-list-item routerLink="/pages/tipo_persona">
-          <mat-icon mat-list-icon>groups</mat-icon>Tipo Personas</mat-list-item
-        >
-        <mat-list-item routerLink="/pages/usuario">
-          <mat-icon mat-list-icon>group_add</mat-icon>Personas</mat-list-item
-        >
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
+      <mat-nav-list >
+        @for (item of menu; track item) {
+        @if(item.children && item.children.length>0){
+        <mat-accordion style="justify-content: space-between;">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <!-- Cabeceras del submenu -->
+                <div fxLayout="row" fxLayout Align="space-between ">
+                  <mat-icon>{{item.iconName}}</mat-icon>
+                  {{item.displayName}}
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            @for (subitem of item.children; track subitem) {
+            <mat-list-item routerLink="[subitem.route]">
+              <!-- Entradas de cada submenú  -->
+              <div fxLayout="row" fxLayoutAlign="space-between ">
+                <mat-icon>{{subitem.iconName}}</mat-icon>
+                {{subitem.displayName}}
+              </div>
+            </mat-list-item>
+            }
+          </mat-expansion-panel>
+        </mat-accordion>
+        }
+        @if(!item.children || item.children.length === 0){
+        <mat-list-item routerLink="[item.route]">
+          <!-- Entradas principales -->
+          <div fxLayout="row" fxLayoutAlign="space-between ">
+            <mat-icon>{{item.iconName}}</mat-icon>
+            {{item.displayName}}
+          </div>
+        </mat-list-item>
+        }
+        }
       </mat-nav-list>
-}
-
-      <mat-list-item (click)="toggleMenu2()">
-        <mat-icon mat-list-icon>account_tree</mat-icon>Procesos
-        @if (!showMenu2) {
-<mat-icon>chevron_right</mat-icon>
-}
-        @if (showMenu2) {
-<mat-icon>expand_more</mat-icon>
-}
-      </mat-list-item>
-      @if (showMenu2) {
-<mat-nav-list
-        class="sidenav-submenu"
-       
-        style="padding: 5px 25px 0; width: 100%"
-      >
-        <mat-list-item routerLink="/pages/rolusuario">
-          <mat-icon mat-list-icon>local_shipping</mat-icon>Ingreso
-          Cascara</mat-list-item
-        >
-        <mat-list-item routerLink="/pages/usuario">
-          <mat-icon mat-list-icon>sunny</mat-icon>Secado</mat-list-item
-        >
-        <mat-list-item routerLink="/pages/usuario">
-          <mat-icon mat-list-icon>move_down</mat-icon>Pilado</mat-list-item
-        >
-      </mat-nav-list>
-}
-      <mat-list-item (click)="toggleMenu3()">
-        <mat-icon mat-list-icon>receipt_long</mat-icon>Reportes
-        @if (!showMenu3) {
-<mat-icon>chevron_right</mat-icon>
-}
-        @if (showMenu3) {
-<mat-icon>expand_more</mat-icon>
-}
-      </mat-list-item>
-
-      <mat-list-item (click)="toggleMenu4()">
-        <mat-icon mat-list-icon>manage_accounts</mat-icon>Administración
-        @if (!showMenu4) {
-<mat-icon>chevron_right</mat-icon>
-}
-        @if (showMenu4) {
-<mat-icon>expand_more</mat-icon>
-}
-      </mat-list-item>
-      @if (showMenu4) {
-<mat-nav-list
-        class="sidenav-submenu"
-       
-        style="padding: 5px 25px 0; width: 100%"
-      >
-        <mat-list-item routerLink="/pages/rolusuario">
-          <mat-icon mat-list-icon>admin_panel_settings</mat-icon
-          >Roles</mat-list-item
-        >
-        <mat-list-item routerLink="/pages/usuario">
-          <mat-icon mat-list-icon>perm_contact_calendar</mat-icon
-          >Usuarios</mat-list-item
-        >
-      </mat-nav-list>
-}
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div style="height: 90vh">
-      <router-outlet></router-outlet>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="height: 90vh">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</body>

@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from 'rxjs';
 import { Variedad } from '../Interfaces/variedad';
+import { apiServer } from '../apiServer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VariedadService {
-  private urlApi:string="http://localhost:9090/api/Variedad";
+  private urlApi:String=apiServer.ServerUrl+"Variedad";
   constructor(private httpClient: HttpClient) { }
 
   public ObtenerTodos():Observable<Variedad[]>{

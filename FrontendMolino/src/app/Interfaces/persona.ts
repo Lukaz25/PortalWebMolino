@@ -1,4 +1,6 @@
+import { TipoDocIdentidad } from "./tipo-doc-identidad";
 import { TipoPersona } from "./tipo-persona";
+import { Ubigeo } from "./ubigeo";
 
 export interface Persona {
     idpersona: number,
@@ -9,6 +11,8 @@ export interface Persona {
     observacion: string,
     estado: string,
     tipopersona: TipoPersona,
+    tipodocident:TipoDocIdentidad,
+    ubigeo:Ubigeo,
     personaDescripcion: string,
     f_create: Date
 }

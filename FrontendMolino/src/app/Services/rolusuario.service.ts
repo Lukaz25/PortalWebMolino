@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from 'rxjs';
 import { Rolusuario } from '../Interfaces/rolusuario';
+import { apiServer } from '../apiServer';
 @Injectable({
   providedIn: 'root'
 })
 export class RolusuarioService {
-private urlApi:string="http://localhost:9090/api/Rolusuario";
+  private urlApi:String=apiServer.ServerUrl+"Rolusuario";
   constructor(private httpClient: HttpClient) { }
 
   

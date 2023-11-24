@@ -1,0 +1,57 @@
+table {
+    width: 100%;
+    flex: auto;
+}
+.mat-column-idpersona{
+    text-align: center;
+    width: 3.225em;
+    max-width: 5em;
+    word-wrap: break-word;
+  }
+.mat-form-fiel {
+    font-size: 0.875em;
+    width: 100%;
+    flex: auto;
+}
+.mat-mdc-row .mat-mdc-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+}
+.mat-mdc-row:hover .mat-mdc-cell {
+    border-color: currentColor;
+}
+
+
+@media (max-width:1200px) {
+    .body {
+        font-size: 0.875em;
+    }
+}
+
+/*Laptops*/
+@media (max-width:992px) {
+    .body {
+        font-size: 1em;
+    }
+}
+/*Tablets*/
+@media(max-width:768px) {
+    .body{
+        font-size: 0.75em;
+    }
+    .mat-table{
+        overflow-x:scroll;
+    }
+
+}
+/*Celulares*/
+@media (max-width:576px) {
+    .body{
+        font-size: 12px;
+    }
+    .mat-table{
+        overflow-x:scroll;
+    }
+
+}

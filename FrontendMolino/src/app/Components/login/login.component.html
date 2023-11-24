@@ -1,17 +1,20 @@
+<body>
 <section class="left-form">
+    <img src="./assets/img/logo.png" width="200px auto" height="200PX auto" style="background-size: cover;">
+    <label class="lbLogo">MolinoGestorWeb</label>
 </section>
 <section class="right-form">
-    <div >
+
         <mat-card class="loginCard">
             <br>
             <div class="header">
-                <h2>Molinos Soft</h2>
-                <h4>Inicia sesión en tu cuenta</h4>
+                <h2  class="lbLogo2">MolinoGestorWeb</h2>
+                <h4>Inicia sesión</h4>
             </div>
             <mat-card-content style="padding-bottom: 15px;">
                 <form [formGroup]="formularioLogin" (ngSubmit)="iniciarSesion()">
                     <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Usuario</mat-label>
+                        <mat-label>Usuario o Email</mat-label>
                         <input formControlName="username" matInput autocomplete="off">
                         <mat-icon matSuffix>person</mat-icon>
                     </mat-form-field>
@@ -22,7 +25,6 @@
                         <button mat-icon-button matSuffix (click)="ocultarPassword= !ocultarPassword" type="button">
                             <mat-icon matSuffix>{{ocultarPassword ? 'visibility_off':'visibility'}}></mat-icon>
                         </button>
-
                     </mat-form-field>
                     <mat-checkbox>Recordar Contraseña</mat-checkbox>
                     <button class="full-width" mat-raised-button color="primary" type="submit"
@@ -40,5 +42,6 @@
 }
             </mat-card-footer>
         </mat-card>
-    </div>
+
 </section>
+</body>

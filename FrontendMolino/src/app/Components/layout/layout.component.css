@@ -1,8 +1,90 @@
-.mat-sidenav{
-    .mat-icon{
+.body {
+    display: flex;
+    flex-direction: column;
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+.lbLogo2 {
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 0.87em;
+    color: #ffffff;
+    font-variant: small-caps;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.example-sidenav-container {
+    flex: 1;
+}
+.mat-sidenav {
+    width: 300px;
+    .mat-icon {
         color: #3f51b5;
         vertical-align: middle;
         padding: 5% 0;
-        }
+    }
 }
 
+.example-is-mobile .example-sidenav-container {
+    flex: 1 0 auto;
+}
+
+@media screen and (max-width:1200px) {
+    .body {
+        font-size: 14px;
+    }
+    .mat-sidenav {
+        visibility: visible;
+    }
+}
+
+/*Laptops*/
+@media screen and (max-width:992px) {
+    .body {
+        font-size: 16px;
+    }
+
+    .mat-sidenav {
+        display: flex;
+        visibility: visible;
+    }
+}
+
+/*Tablets*/
+@media(max-width:768px) {
+    .body {
+        font-size: 12px;
+    }
+
+    .mat-sidenav {
+        visibility: hidden;
+    }
+
+    .collapse {
+        display: block;
+    }
+
+    .nav-scrollable {
+        /* Allow sidebar to scroll for tall menus */
+        height: calc(100vh - 3.5rem);
+        overflow-y: auto;
+    }
+
+}
+
+/*Celulares*/
+@media (max-width:576px) {
+    .body {
+        font-size: 10px;
+    }
+    .mat-sidenav {
+        visibility: hidden;
+        width: 200px;
+    .mat-sidenav.mat-nav-list{
+        font-size: 10px;
+    }
+    }
+}

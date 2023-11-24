@@ -12,7 +12,7 @@ import { UsuarioComponent } from './Pages/usuario/usuario.component';
 import { ModalTipoPersonaComponent } from './Modales/modal-tipo-persona/modal-tipo-persona.component';
 import { ModalAlmacenComponent } from './Modales/modal-almacen/modal-almacen.component';
 import { ModalVariedadComponent } from './Modales/modal-variedad/modal-variedad.component';
-import { AlmacenComponent } from './Pages/almacen/almacen.component';
+import { AlmacenComponent } from './Pages/almacen/AlmacenComponent';
 import { VariedadComponent } from './Pages/variedad/variedad.component';
 import { ModalPersonaComponent } from './Modales/modal-persona/modal-persona.component';
 import { PersonaComponent } from './Pages/persona/persona.component';

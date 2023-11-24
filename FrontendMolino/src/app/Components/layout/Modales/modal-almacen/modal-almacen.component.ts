@@ -3,6 +3,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { Almacen } from 'src/app/Interfaces/almacen';
 import { AlmacenService } from 'src/app/Services/almacen.service';
@@ -18,7 +19,7 @@ import { MatDividerModule } from '@angular/material/divider';
     templateUrl: './modal-almacen.component.html',
     styleUrls: ['./modal-almacen.component.css'],
     standalone: true,
-    imports: [MatDialogTitle, MatDividerModule, MatDialogContent, ReactiveFormsModule, MatGridListModule, MatFormFieldModule, MatInputModule, MatDialogActions, MatButtonModule, MatDialogClose]
+    imports: [MatDialogTitle,FlexLayoutModule,MatDividerModule, MatDialogContent, ReactiveFormsModule, MatGridListModule, MatFormFieldModule, MatInputModule, MatDialogActions, MatButtonModule, MatDialogClose]
 })
 export class ModalAlmacenComponent implements OnInit {
 
@@ -48,7 +49,7 @@ if(this.datosAlmacen!=null){
       this.formularioAlmacen.patchValue({
         idalmacen:this.datosAlmacen.idalmacen,
         descripcion:this.datosAlmacen.descripcion,
-        estado:'0'
+        estado:this.datosAlmacen.estado,
       })
     }
   }

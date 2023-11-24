@@ -1,7 +1,22 @@
 mat-form-field{
+    flex: auto;
     width: 100%;
     margin: 10px 0px;
 }
-form{
-    width: 400px;
+body{
+    flex: auto;
+    width: 28em;
+}
+@media screen and (max-width:992px) {
+    body{
+        width: 28em;
+        font-size: 16px;
+    }
+}
+/*Tablets*/
+@media (max-width:576px) {
+    body{
+        width: 20.45rem;
+        font-size: 12px;
+    }
 }

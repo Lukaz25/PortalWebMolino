@@ -48,7 +48,7 @@ if(this.datosVariedad!=null){
       this.formularioVariedad.patchValue({
         idvariedad:this.datosVariedad.idvariedad,
         descripcion:this.datosVariedad.descripcion,
-        estado:'0'
+        estado:this.datosVariedad.estado,
       })
     }
   }

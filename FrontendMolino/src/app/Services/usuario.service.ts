@@ -5,12 +5,13 @@ import {Observable} from 'rxjs';
 import { Login } from '../Interfaces/login';
 import { Sesion } from '../Interfaces/sesion';
 import { Usuario } from '../Interfaces/usuario';
+import { apiServer } from '../apiServer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  private urlApi:string="http://localhost:9090/api/Usuario";
+  private urlApi:String=apiServer.ServerUrl+"Usuario";
   constructor(private httpClient: HttpClient) { }
 
   public iniciarSesion(request:Login):Observable<Sesion>{

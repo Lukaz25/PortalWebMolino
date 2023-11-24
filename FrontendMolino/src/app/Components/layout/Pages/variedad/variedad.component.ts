@@ -16,13 +16,14 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @Component({
     selector: 'app-variedad',
     templateUrl: './variedad.component.html',
     styleUrls: ['./variedad.component.css'],
     standalone: true,
-    imports: [MatCardModule, MatButtonModule, MatIconModule, MatDividerModule, MatFormFieldModule, MatInputModule, MatTableModule, MatPaginatorModule]
+    imports: [MatCardModule,FlexLayoutModule, MatButtonModule, MatIconModule, MatDividerModule, MatFormFieldModule, MatInputModule, MatTableModule, MatPaginatorModule]
 })
 export class VariedadComponent implements OnInit, AfterViewInit{
 

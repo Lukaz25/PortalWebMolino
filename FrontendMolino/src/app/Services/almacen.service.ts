@@ -3,12 +3,13 @@ import {HttpClient} from "@angular/common/http";
 import { HttpHeaders } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { Almacen } from '../Interfaces/almacen';
+import { apiServer } from '../apiServer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlmacenService {
-  private urlApi:string="http://localhost:9090/api/Almacen";
+  private urlApi:String=apiServer.ServerUrl+"Almacen";
   constructor(private httpClient: HttpClient) { }
 
   public ObtenerTodos():Observable<Almacen[]>{

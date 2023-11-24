@@ -48,7 +48,7 @@ if(this.datosTipoPersona!=null){
       this.formularioTipoPersona.patchValue({
         idtipo_persona:this.datosTipoPersona.idtipo_persona,
         descripcion:this.datosTipoPersona.descripcion,
-        estado:'0'
+        estado:this.datosTipoPersona.estado,
       })
     }
   }
