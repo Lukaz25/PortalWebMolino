@@ -1,5 +1,6 @@
 package com.PortalWebMolino.BackendMolino.Controller;
 
+import com.PortalWebMolino.BackendMolino.Entity.Dto.UbigeoDto;
 import com.PortalWebMolino.BackendMolino.Entity.Ubigeo;
 import com.PortalWebMolino.BackendMolino.Service.UbigeoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,8 @@ public class UbigeoController {
 
     @GetMapping
     public List<Ubigeo> ObtenerTodos() {
-        return ubigeoService.ObtenerTodos();
+        return  ubigeoService.ObtenerTodos();
     }
-
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<Ubigeo>> ObtenerporId(@PathVariable("id") String id) {
         return ResponseEntity.status(HttpStatus.OK).body(ubigeoService.ObtenerporId(id));

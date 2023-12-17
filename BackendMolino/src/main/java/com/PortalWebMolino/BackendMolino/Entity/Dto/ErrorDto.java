@@ -1,4 +1,4 @@
-package com.PortalWebMolino.BackendMolino.Dto;
+package com.PortalWebMolino.BackendMolino.Entity.Dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

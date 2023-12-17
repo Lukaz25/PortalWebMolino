@@ -22,4 +22,5 @@ public class Almacen {
     @NotBlank
     private String descripcion;
     private String estado;
+
 }

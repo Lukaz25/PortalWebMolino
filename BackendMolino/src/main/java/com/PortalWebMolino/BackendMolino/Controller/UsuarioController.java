@@ -1,10 +1,9 @@
 package com.PortalWebMolino.BackendMolino.Controller;
 
 
-import com.PortalWebMolino.BackendMolino.Dto.LoginDto;
-import com.PortalWebMolino.BackendMolino.Dto.SesionDto;
+import com.PortalWebMolino.BackendMolino.Entity.Dto.LoginDto;
+import com.PortalWebMolino.BackendMolino.Entity.Dto.SesionDto;
 import com.PortalWebMolino.BackendMolino.Entity.Usuario;
-import com.PortalWebMolino.BackendMolino.Service.RolusuarioService;
 import com.PortalWebMolino.BackendMolino.Service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +20,13 @@ import java.util.Optional;
 @RequestMapping("api/Usuario")
 @RequiredArgsConstructor
 public class UsuarioController {
-    @Autowired
-    private RolusuarioService rolusuarioService;
+
     @Autowired
     private UsuarioService usuarioService;
+
+    public UsuarioController(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
 
     @PostMapping("/IniciarSesion")
     public ResponseEntity<SesionDto> IniciarSesion(@Valid @RequestBody LoginDto loginDto) {

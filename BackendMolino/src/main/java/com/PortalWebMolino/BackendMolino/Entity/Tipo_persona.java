@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,7 +19,8 @@ public class Tipo_persona {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idtipo_persona")
     private Long idtipo_persona;
-
+    @Column(unique = true)
+    @NotBlank
     private String descripcion;
     private String estado;
 }

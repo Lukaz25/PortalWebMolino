@@ -24,6 +24,7 @@ public class Tipo_personaService {
     }
 
     public Optional<Tipo_persona> ObtenerporId(Long id) {
+
         return Optional.ofNullable(iRepository.findByID(id));
     }
 

@@ -1,6 +1,6 @@
 package com.PortalWebMolino.BackendMolino.Service;
 
-import com.PortalWebMolino.BackendMolino.Dto.SesionDto;
+import com.PortalWebMolino.BackendMolino.Entity.Dto.SesionDto;
 import com.PortalWebMolino.BackendMolino.Entity.Usuario;
 import com.PortalWebMolino.BackendMolino.Repository.IUsuarioRepository;
 import lombok.RequiredArgsConstructor;
