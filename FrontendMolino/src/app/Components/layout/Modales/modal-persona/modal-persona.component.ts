@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 
-import { Form, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Form, FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose } from '@angular/material/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -19,13 +19,15 @@ import { TipoDocIdentidadService } from 'src/app/Services/tipo-doc-identidad.ser
 import { TipoPersona } from 'src/app/Interfaces/tipo-persona';
 import { TipoDocIdentidad } from 'src/app/Interfaces/tipo-doc-identidad';
 import { max } from 'moment';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
     selector: 'app-modal-persona',
     templateUrl: './modal-persona.component.html',
     styleUrls: ['./modal-persona.component.css'],
     standalone: true,
-    imports: [MatDialogTitle,MatSelectModule,FlexLayoutModule,MatDividerModule, MatDialogContent, ReactiveFormsModule, MatGridListModule, MatFormFieldModule, MatInputModule, MatDialogActions, MatButtonModule, MatDialogClose]
+    imports: [MatDialogTitle,MatTooltipModule,MatIconModule,MatSelectModule,FlexLayoutModule,MatDividerModule, MatDialogContent, ReactiveFormsModule, MatGridListModule, MatFormFieldModule, MatInputModule, MatDialogActions, MatButtonModule, MatDialogClose]
 })
 export class ModalPersonaComponent  implements OnInit {
 
@@ -34,6 +36,9 @@ export class ModalPersonaComponent  implements OnInit {
     botonAccion: string = "Guardar"
     listaTipPer : TipoPersona[]=[];
     listaTipDoc : TipoDocIdentidad[]=[];
+    disabled: boolean = true;
+
+   
     
     constructor(
       private modalActual: MatDialogRef<ModalPersonaComponent>,
@@ -52,7 +57,6 @@ export class ModalPersonaComponent  implements OnInit {
         direccion: ['', Validators.required],
         celular: ['', Validators.required],
         observacion: [''],
-        
       });
   
   if(this.datosPersona!=null){
@@ -63,7 +67,6 @@ export class ModalPersonaComponent  implements OnInit {
   this.ListaTipoDocIdent();
     }
     ngOnInit(): void {
-  
       if(this.datosPersona!= null){
         this.formularioPersona.patchValue({
           idpersona:this.datosPersona.idpersona,
@@ -98,8 +101,9 @@ export class ModalPersonaComponent  implements OnInit {
         },
           error: (e) => { },
         complete: () => {}}) }
-       
-    GuardarEditar_Almacen(){
-      
+    busca_documento_api(){
+
+    }    
+    GuardarEditar_Almacen(){  
     }
 }

@@ -61,7 +61,7 @@ export class LayoutComponent implements OnInit {
         {
           displayName: 'Ingreso Cascara',
           iconName: 'local_shipping',
-          route: '/pages/persona'
+          route: '/pages/ingresocascara'
         },
         { 
           displayName: 'Secado',
@@ -73,6 +73,17 @@ export class LayoutComponent implements OnInit {
           iconName: 'move_down',
           route: '/pages/persona'
         }
+      ]
+    },
+    {
+      displayName: 'Reportes',
+      iconName: 'receipt_long',          
+      children: [
+        {
+          displayName: 'Ingreso Cascara',
+          iconName: 'ballot',
+          route: '/pages/rolusuario'
+        },
       ]
     },
     {

@@ -8,6 +8,7 @@ import { UsuarioComponent } from './Pages/usuario/usuario.component';
 import { AlmacenComponent } from './Pages/almacen/AlmacenComponent';
 import { VariedadComponent } from './Pages/variedad/variedad.component';
 import { PersonaComponent } from './Pages/persona/persona.component';
+import { IngresoCascaraComponent } from './Pages/ingreso-cascara/ingreso-cascara.component';
 
 const routes: Routes = [{
   path:'',
@@ -19,7 +20,8 @@ const routes: Routes = [{
     {path:'usuario',component:UsuarioComponent},
     {path:'almacen',component:AlmacenComponent},
     {path:'variedad',component:VariedadComponent},
-    {path:'persona',component:PersonaComponent}
+    {path:'persona',component:PersonaComponent},
+    {path:'ingresocascara',component:IngresoCascaraComponent}
   ]
 }];
 

@@ -12,7 +12,5 @@ export interface Persona {
     estado: string,
     tipopersona: TipoPersona,
     tipodocident:TipoDocIdentidad,
-    ubigeo:Ubigeo,
-    personaDescripcion: string,
-    f_create: Date
+    ubigeo:Ubigeo
 }

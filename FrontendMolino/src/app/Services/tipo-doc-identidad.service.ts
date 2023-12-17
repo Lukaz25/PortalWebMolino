@@ -14,7 +14,7 @@ export class TipoDocIdentidadService {
   public ObtenerTodos():Observable<TipoDocIdentidad[]>{
     return this.httpClient.get<TipoDocIdentidad[]>(`${this.urlApi}`);
   }
-  public ObtenerporId(id:number):Observable<TipoDocIdentidad>{
+  public ObtenerporId(id:String):Observable<TipoDocIdentidad>{
     return  this.httpClient.get<TipoDocIdentidad>(`${this.urlApi}/${id}`);
   }
 }

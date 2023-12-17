@@ -15,13 +15,12 @@
                 <form [formGroup]="formularioLogin" (ngSubmit)="iniciarSesion()">
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Usuario o Email</mat-label>
-                        <input formControlName="username" matInput autocomplete="off">
+                        <input formControlName="username" matInput>
                         <mat-icon matSuffix>person</mat-icon>
                     </mat-form-field>
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Contraseña</mat-label>
-                        <input [type]="ocultarPassword ?'password':'text'" formControlName="password" matInput
-                            autocomplete="off">
+                        <input [type]="ocultarPassword ?'password':'text'" formControlName="password" matInput>
                         <button mat-icon-button matSuffix (click)="ocultarPassword= !ocultarPassword" type="button">
                             <mat-icon matSuffix>{{ocultarPassword ? 'visibility_off':'visibility'}}></mat-icon>
                         </button>

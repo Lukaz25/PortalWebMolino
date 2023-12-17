@@ -1,0 +1,108 @@
+<body>
+    <div>
+        <mat-card style="margin: 15px 20px 20px 20px">
+            <h2 style="padding: 15px 20px 0 20px; align-content: end">
+                <mat-icon mat-list-icon>local_shipping</mat-icon>&nbsp;&nbsp;Ingreso de Arroz Cascara
+            </h2>
+            <mat-card-title style="padding: 1px 20px 0 2px; text-align: end">
+                <mat-form-field Appearance="Standard" style="width: 50%">
+                    <mat-label>Buscar</mat-label>
+                    <input matInput (keyup)="($event)" placeholder="Buscar..." #input />
+                    <mat-icon mat-list-icon matSuffix>search</mat-icon>
+                </mat-form-field>
+                &nbsp;&nbsp;
+                <button mat-mini-fab type="button" color="primary" name="btn-add-r"  fxHide fxShow.lt-sm (click)="nuevoIngresoCascara()">
+                    <mat-icon>add</mat-icon>
+                </button>
+                <button mat-raised-button type="button" color="primary" name="btn-add" fxHide.lt-sm (click)="nuevoIngresoCascara()">
+                    <mat-icon mat-list-icon>add</mat-icon> Agregar
+                </button>
+            </mat-card-title>
+            <mat-card-content class="dashboard-card-content">
+                    <table mat-table [dataSource]="dataListaIngreso" class="mat-elevation-z4">
+                        <ng-container matColumnDef="idingreso">
+                            <th mat-header-cell *matHeaderCellDef>Id</th>
+                            <td mat-cell *matCellDef="let element">
+                                {{ element.idingreso}}
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="nro_doc">
+                            <th mat-header-cell *matHeaderCellDef>No.Guia</th>
+                            <td mat-cell *matCellDef="let element">
+                                {{ element.nro_doc}}
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="fecha_ing">
+                            <th mat-header-cell *matHeaderCellDef>Fecha</th>
+                            <td mat-cell *matCellDef="let element">
+                                {{ element.fecha_ing}}
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="nombre">
+                            <th mat-header-cell *matHeaderCellDef>Agricultor</th>
+                            <td mat-cell *matCellDef="let element">
+                                {{ element.descripcion }}
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="almacen">
+                            <th mat-header-cell *matHeaderCellDef>Ubicación</th>
+                            <td mat-cell *matCellDef="let element">
+                                {{ element.almacen.descripcion }}
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="num_sac_ing">
+                            <th mat-header-cell *matHeaderCellDef>Sacos</th>
+                            <td mat-cell *matCellDef="let element">
+                                {{ element.num_sac_ing }}
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="pes_neto">
+                            <th mat-header-cell *matHeaderCellDef>P.Neto (Kg)</th>
+                            <td mat-cell *matCellDef="let element">
+                                {{ element.pes_neto }}
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="humedad">
+                            <th mat-header-cell *matHeaderCellDef>Hum. (%)</th>
+                            <td mat-cell *matCellDef="let element">
+                                {{ element.humedad }}
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="placa">
+                            <th mat-header-cell *matHeaderCellDef>Placa</th>
+                            <td mat-cell *matCellDef="let element">
+                                {{ element.placa }}
+                            </td>
+                        </ng-container>
+                        <ng-container matColumnDef="acciones">
+                            <th mat-header-cell *matHeaderCellDef></th>
+                            <td mat-cell *matCellDef="let element">
+                                <div style="display: flex;align-items: center;justify-content: flex-end;">
+                                <button mat-icon-button color="primary" (click)="editarIngresoCascara(element)">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button mat-icon-button color="warn" (click)="eliminarIngresoCascara(element)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="columnasTabla"></tr>
+                        <tr mat-row *matRowDef="let row; columns: columnasTabla"></tr>
+
+                        <tr class="mat-row" *matNoDataRow>
+                            <td class="mat-cell" colspan="2">
+                                No existe datos con filtro "{{ input.value }}"
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+                    </mat-paginator>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</body>
+

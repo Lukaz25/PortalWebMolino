@@ -15,23 +15,34 @@
     text-transform: capitalize;
     text-align: center;
 }
-
 .example-sidenav-container {
     flex: 1;
 }
-.mat-sidenav {
-    width: 300px;
-    .mat-icon {
-        color: #3f51b5;
-        vertical-align: middle;
-        padding: 5% 0;
-    }
-}
-
-.example-is-mobile .example-sidenav-container {
+.example-is-mobile.example-sidenav-container {
     flex: 1 0 auto;
 }
-
+.mat-sidenav {
+    width: 16.875em;
+    .mat-icon {
+        color: #3f51b5;
+        vertical-align:middle;
+    }
+}
+.mat-expansion-panel{
+    .mat-expansion-panel-header{
+        padding: 0 0.9375rem;
+        .mat-panel-title {
+            flex-basis: 0;
+        }
+    }
+    .mat-expansion-panel-body{
+        padding: 0 0.625rem;
+    }
+}
+.texto{
+font-family: Arial, Helvetica, sans-serif;
+font-size: 13px;
+}
 @media screen and (max-width:1200px) {
     .body {
         font-size: 14px;
